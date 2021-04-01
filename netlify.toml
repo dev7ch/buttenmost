@@ -1,4 +1,8 @@
 [build]
-command = yarn build
-commandOrigin = ui
-publish = /opt/build/repo/dist
+  command = "yarn generate"
+  functions = "functions"
+  publish = "dist"
+
+[dev]
+framework = "nuxt"
+command = "yarn dev"
