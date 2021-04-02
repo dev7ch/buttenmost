@@ -1,8 +1,8 @@
 
 <template>
-  <v-row>
-    <v-col class="text-center">
-      <img src="../static/titelbild.jpg" alt="Vuetify.js" class="mb-5" />
+  <v-row class="text-center">
+    <v-col>
+<img src="../static/titelbild.jpg" style="max-width: 600px;"/>
 
       <blockquote class="blockquote">
         Buttenmost bestellen
@@ -25,8 +25,8 @@
   
 
 
-  //https://answers.netlify.com/t/vuetify-form-with-nuxt-js-recognized-by-netlify-but-no-form-submissions/11730
-  <v-form name="bestellung" ref="form" v-model="valid" action="/inspire/" method="POST" lazy-validation data-netlify="true">
+  <!-- https://answers.netlify.com/t/vuetify-form-with-nuxt-js-recognized-by-netlify-but-no-form-submissions/11730 -->
+  <v-form name="bestellung" ref="form" v-model="valid" action="/danke/" method="POST" lazy-validation data-netlify="true">
               <input type="hidden" name="form-name" value="bestellung" />
             <v-container>
       <v-row>
