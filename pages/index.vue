@@ -113,9 +113,9 @@
             
         </v-col>
         
-              <input type="hidden" name="Liter" value="{{zahl}}" />
-               <input type="hidden" name="Preis" value="{{preis}}" />
-                <input type="hidden" name="Porto" value="{{porto}}" />
+              <input type="hidden" name="Liter" v-bind:value="zahl" />
+               <input type="hidden" name="Preis" v-bind:value="preis" />
+                <input type="hidden" name="Porto" v-bind:value="porto" />
          <v-col
           cols="12"
           md="12"
