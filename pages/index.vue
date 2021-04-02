@@ -23,8 +23,12 @@
       <pre>Total: {{zahl+preis+porto}}</pre>
       
   
-  <v-form v-model="valid">
-    <v-container>
+
+
+
+  <v-form name="bestellung" ref="form" v-model="valid" action="/inspire/" method="POST" lazy-validation data-netlify="true">
+              <input type="hidden" name="form-name" value="bestellung" />
+            <v-container>
       <v-row>
         <v-col
           cols="12"
@@ -109,11 +113,14 @@
   color="primary"
   elevation="2"
   large
->Jetzt bestellen</v-btn>
+  type="submit">
+Jetzt bestellen</v-btn>
          </v-col>
       </v-row>
     </v-container>
   </v-form>
+
+  
     </v-col>
   </v-row>
 </template>
