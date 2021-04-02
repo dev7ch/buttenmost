@@ -25,7 +25,7 @@
   
 
 
-
+  //https://answers.netlify.com/t/vuetify-form-with-nuxt-js-recognized-by-netlify-but-no-form-submissions/11730
   <v-form name="bestellung" ref="form" v-model="valid" action="/inspire/" method="POST" lazy-validation data-netlify="true">
               <input type="hidden" name="form-name" value="bestellung" />
             <v-container>
@@ -38,6 +38,7 @@
             v-model="firstname"
             :rules="nameRules"
             label="First name"
+            name="Vorname"
             required
           ></v-text-field>
         </v-col>
@@ -49,7 +50,8 @@
           <v-text-field
             v-model="lastname"
             :rules="nameRules"
-            label="Last name"
+            label="Nachname"
+            name = "Nachname"
             required
           ></v-text-field>
         </v-col>
@@ -61,6 +63,7 @@
           <v-text-field
             v-model="street"
             label="Strasse"
+            name="Strasse"
             required
           ></v-text-field>
         </v-col>
@@ -71,6 +74,7 @@
           <v-text-field
             v-model="number"
             label="Nummer"
+            name="Nummer"
             required
           ></v-text-field>
         </v-col>
@@ -81,6 +85,7 @@
           <v-text-field
             v-model="plz"
             label="PLZ"
+            Name="PLZ"
             required
           ></v-text-field>
         </v-col>
@@ -102,10 +107,15 @@
             v-model="email"
             :rules="emailRules"
             label="E-mail"
+            name="mail"
             required
           ></v-text-field>
             
         </v-col>
+        
+              <input type="hidden" name="Liter" value="{{zahl}}" />
+               <input type="hidden" name="Preis" value="{{preis}}" />
+                <input type="hidden" name="Porto" value="{{porto}}" />
          <v-col
           cols="12"
           md="12"
