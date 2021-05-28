@@ -1,7 +1,10 @@
 <template>
+
   <v-container>
+    
     <v-row style="max-width:600px">
       <v-col>
+        <TestSelect/>
         <img src="../static/titelbild.jpg" style="max-width: 600px;" />
 
         <v-divider></v-divider>
@@ -57,20 +60,24 @@
       data-netlify="true"
     >
       <input type="hidden" name="form-name" value="bestellung" />
-      Buttenmost ist ein Frischprodukt. Heute ist der  {{ heute.toLocaleDateString("de-CH") }}. Wenn Sie jetzt oder bis Sonntagabend
-      bestellen, verschicken wir den Buttenmost am: {{shippingDaysPossible[0]}}.
-      Gewöhnlich trifft die Sendung zwei, maximal drei Tage nach Versanddatum
-      bei Ihnen ein. Möchten Sie den Buttenmost lieber an einem anderen Tag
-      erhalten, dann können Sie das Versanddatum wählen:
+      Buttenmost ist ein Frischprodukt. Heute ist der
+      {{ heute.toLocaleDateString("de-CH") }}. Wenn Sie jetzt oder bis
+      Sonntagabend bestellen, verschicken wir den Buttenmost am:
+      {{ selectedShippingDay }}. Gewöhnlich trifft die Sendung zwei, maximal
+      drei Tage nach Versanddatum bei Ihnen ein. Möchten Sie den Buttenmost
+      lieber an einem anderen Tag erhalten, dann können Sie das Versanddatum
+      wählen:
       <v-select
         :items="shippingDaysPossible"
+        v-model="selectedShippingDay"
       ></v-select>
-     
+
       <v-row class="text-center" style="max-width:600px">
         <v-col cols="12" md="6">
           <v-text-field
             v-model="firstname"
             :rules="nameRules"
+            item-value="Date"
             label="Vorname"
             name="Vorname"
             required
@@ -157,10 +164,11 @@
 
 <script>
 import Verkaufsstellen from "~/components/verkaufsstellen.vue";
+import TestSelect from '@/components/TestSelect.vue';
 
 export default {
   components: {
-    Verkaufsstellen
+    Verkaufsstellen,TestSelect
   },
   data() {
     return {
@@ -177,11 +185,24 @@ export default {
         "2021-10-26",
         "2021-11-02"
       ],
-      
-    selected: '2021-09-07',
+      selectedShippingDay: this.firstPossibleShippingDay
       //defaultSelected: this.shippingDaysPossible[0]
     };
   },
+
+  methods: {
+    findPossibleShippingDays(shippingDays) {
+      let possibleDatesArray = [];
+      shippingDays.forEach(element => {
+        let date = new Date(element);
+        if (date > this.heute) {
+          possibleDatesArray.push(date.toLocaleDateString("de-CH"));
+        }
+      })
+      return possibleDatesArray
+    }
+  },
+  
   computed: {
     preis: function() {
       return this.zahl * this.preis_pro_liter;
@@ -194,18 +215,13 @@ export default {
       }
     },
     heute: function() {
-      return new Date()
+      return new Date();
     },
-    shippingDaysPossible: function() {
-      let possibleDatesArray = [];
-      this.shippingDays.forEach(element => {
-        let date = new Date(element);
-        if (date > this.heute) {
-          possibleDatesArray.push(date.toLocaleDateString("de-CH"));
-        }
-      });
-      return possibleDatesArray;
+
+    shippingDaysPossible: findPossibleShippingDays(this.shippingDays),
+    firstPossibleShippingDay: function() {
+      return this.shippingDaysPossible[0];
     }
-  }
+  },
 };
 </script>
