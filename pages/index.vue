@@ -1,10 +1,7 @@
 <template>
-
   <v-container>
-    
     <v-row style="max-width:600px">
       <v-col>
-        <TestSelect/>
         <img src="../static/titelbild.jpg" style="max-width: 600px;" />
 
         <v-divider></v-divider>
@@ -63,21 +60,17 @@
       Buttenmost ist ein Frischprodukt. Heute ist der
       {{ heute.toLocaleDateString("de-CH") }}. Wenn Sie jetzt oder bis
       Sonntagabend bestellen, verschicken wir den Buttenmost am:
-      {{ selectedShippingDay }}. Gewöhnlich trifft die Sendung zwei, maximal
+      {{ stillPossibleShippingDays[0] }}. Gewöhnlich trifft die Sendung zwei, maximal
       drei Tage nach Versanddatum bei Ihnen ein. Möchten Sie den Buttenmost
       lieber an einem anderen Tag erhalten, dann können Sie das Versanddatum
       wählen:
-      <v-select
-        :items="shippingDaysPossible"
-        v-model="selectedShippingDay"
-      ></v-select>
+      <v-select :items="stillPossibleShippingDays" v-model="selected"></v-select>
 
       <v-row class="text-center" style="max-width:600px">
         <v-col cols="12" md="6">
           <v-text-field
             v-model="firstname"
             :rules="nameRules"
-            item-value="Date"
             label="Vorname"
             name="Vorname"
             required
@@ -164,11 +157,10 @@
 
 <script>
 import Verkaufsstellen from "~/components/verkaufsstellen.vue";
-import TestSelect from '@/components/TestSelect.vue';
 
 export default {
   components: {
-    Verkaufsstellen,TestSelect
+    Verkaufsstellen
   },
   data() {
     return {
@@ -185,24 +177,10 @@ export default {
         "2021-10-26",
         "2021-11-02"
       ],
-      selectedShippingDay: this.firstPossibleShippingDay
-      //defaultSelected: this.shippingDaysPossible[0]
+
+      selected: ""
     };
   },
-
-  methods: {
-    findPossibleShippingDays(shippingDays) {
-      let possibleDatesArray = [];
-      shippingDays.forEach(element => {
-        let date = new Date(element);
-        if (date > this.heute) {
-          possibleDatesArray.push(date.toLocaleDateString("de-CH"));
-        }
-      })
-      return possibleDatesArray
-    }
-  },
-  
   computed: {
     preis: function() {
       return this.zahl * this.preis_pro_liter;
@@ -215,13 +193,26 @@ export default {
       }
     },
     heute: function() {
-      return new Date();
+      //return new Date();
+      //for testing during Season
+      return new Date("2021-09-21");
     },
-
-    shippingDaysPossible: findPossibleShippingDays(this.shippingDays),
-    firstPossibleShippingDay: function() {
-      return this.shippingDaysPossible[0];
+    stillPossibleShippingDays: function() {
+      let possibleDatesArray = [];
+      this.shippingDays.forEach(element => {
+        let date = new Date(element);
+        if (date > this.heute) {
+          possibleDatesArray.push(date.toLocaleDateString("de-CH"));
+        }
+      });
+      return possibleDatesArray;
     }
   },
+
+  mounted() {
+    setTimeout(() => {
+      this.selected = this.stillPossibleShippingDays[0];
+    }, 5000);
+  }
 };
 </script>
