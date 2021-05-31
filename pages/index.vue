@@ -60,11 +60,14 @@
       Buttenmost ist ein Frischprodukt. Heute ist der
       {{ heute.toLocaleDateString("de-CH") }}. Wenn Sie jetzt oder bis
       Sonntagabend bestellen, verschicken wir den Buttenmost am:
-      {{ stillPossibleShippingDays[0] }}. Gewöhnlich trifft die Sendung zwei, maximal
-      drei Tage nach Versanddatum bei Ihnen ein. Möchten Sie den Buttenmost
-      lieber an einem anderen Tag erhalten, dann können Sie das Versanddatum
-      wählen:
-      <v-select :items="stillPossibleShippingDays" v-model="selected"></v-select>
+      {{ stillPossibleShippingDays[0] }}. Gewöhnlich trifft die Sendung zwei,
+      maximal drei Tage nach Versanddatum bei Ihnen ein. Möchten Sie den
+      Buttenmost lieber an einem anderen Tag erhalten, dann können Sie das
+      Versanddatum wählen:
+      <v-select
+        :items="stillPossibleShippingDays"
+        v-model="selected"
+      ></v-select>
 
       <v-row class="text-center" style="max-width:600px">
         <v-col cols="12" md="6">
@@ -178,7 +181,7 @@ export default {
         "2021-11-02"
       ],
 
-      selected: ""
+      selected: null
     };
   },
   computed: {
@@ -210,9 +213,7 @@ export default {
   },
 
   mounted() {
-    setTimeout(() => {
-      this.selected = this.stillPossibleShippingDays[0];
-    }, 5000);
+    this.selected = this.stillPossibleShippingDays[0];
   }
 };
 </script>
