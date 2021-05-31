@@ -25,7 +25,7 @@ export default {
         "2021-10-26",
         "2021-11-02"
       ],
-      selected: ""
+      selected: null
     };
   },
   computed: {
@@ -50,9 +50,9 @@ export default {
     }
   },
   mounted() {
-    setTimeout(() => {
+    // setTimeout(() => {
         this.selected = this.stillPossibleShippingDays[0];
-    }, 2000);
+    // }, 5000);
 }
 };
 </script>
