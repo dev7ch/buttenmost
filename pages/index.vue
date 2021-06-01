@@ -1,8 +1,17 @@
 <template>
-  <v-container>
-    <v-row style="max-width:600px">
-      <v-col>
-        <img src="../static/titelbild.jpg" style="max-width: 600px;" />
+  <v-container style="max-width:600px">
+    <v-form
+      name="bestellung"
+      ref="form"
+      v-model="valid"
+      action="/danke/"
+      method="POST"
+      lazy-validation
+      data-netlify="true"
+    >
+      <v-row>
+        <v-col>
+          <!-- <img src="../static/titelbild.jpg" style="max-width: 600px;" />
 
         <v-divider></v-divider>
         <h2>Direkt ab Hof:</h2>
@@ -23,84 +32,72 @@
         <h2>Per Post (Versand nur CH):</h2>
         Jeweils am Montag oder Dienstag verschicken wir den Buttenmost für 8.50
         pro Liter plus Porto und Verpackung per Post. Hier können Sie bestellen:
-        <br /><br /><br />
-        <v-slider
-          v-model="zahl"
-          dense
-          thumb-label="always"
-          hint="Regler verstellen, um Menge anzupassen"
-          max="20"
-          min="1"
-          :value="zahl * 2"
-          persistent-hint
-        ></v-slider>
-        <div style="align:center">
-          <br />
-          <v-alert color="blue" elevation="12" prominent text>
-            <pre>Menge:&#160;&#160; {{ zahl }} Liter</pre>
-            <pre>Preis: {{ preis.toFixed(2) }} CHF</pre>
-            <pre>Porto:&#160; {{ porto.toFixed(2) }} CHF</pre>
-            <pre>Total: {{ (zahl + preis + porto).toFixed(2) }} CHF</pre>
-          </v-alert>
-        </div>
-      </v-col>
-    </v-row>
+        <br /><br /><br /> -->
+          <v-slider
+            v-model="zahl"
+            dense
+            thumb-label="always"
+            hint="Regler verstellen, um Menge anzupassen"
+            max="20"
+            min="1"
+            :value="zahl * 2"
+            persistent-hint
+          ></v-slider>
+          <div style="align:center">
+            <br />
+            <v-alert color="blue" elevation="12" prominent text>
+              <pre>Menge:&#160;&#160; {{ zahl }} Liter</pre>
+              <pre>Preis: {{ preis.toFixed(2) }} CHF</pre>
+              <pre>Porto:&#160; {{ porto.toFixed(2) }} CHF</pre>
+              <pre>Total: {{ (zahl + preis + porto).toFixed(2) }} CHF</pre>
+            </v-alert>
+          </div>
+        </v-col>
+      </v-row>
 
-    <!-- https://answers.netlify.com/t/vuetify-form-with-nuxt-js-recognized-by-netlify-but-no-form-submissions/11730 -->
-    <v-form
-      name="bestellung"
-      ref="form"
-      v-model="valid"
-      action="/danke/"
-      method="POST"
-      lazy-validation
-      data-netlify="true"
-    >
-      <input type="hidden" name="form-name" value="bestellung" />
-      Buttenmost ist ein Frischprodukt. Heute ist der
-      {{ heute.toLocaleDateString("de-CH") }}. Wenn Sie jetzt oder bis
-      Sonntagabend bestellen, verschicken wir den Buttenmost am:
-      {{ stillPossibleShippingDays[0] }}. Gewöhnlich trifft die Sendung zwei,
-      maximal drei Tage nach Versanddatum bei Ihnen ein. Möchten Sie den
-      Buttenmost lieber an einem anderen Tag erhalten, dann können Sie das
-      Versanddatum wählen:
-      <v-select
-        :items="stillPossibleShippingDays"
-        v-model="selected"
-      ></v-select>
+      <!-- https://answers.netlify.com/t/vuetify-form-with-nuxt-js-recognized-by-netlify-but-no-form-submissions/11730 -->
+      <v-row>
+        <v-col cols="8">
+          <input type="hidden" name="form-name" value="bestellung" />
+          Buttenmost ist ein Frischprodukt. Wenn Sie jetzt oder bis Sonntagabend
+          bestellen, verschicken wir den Buttenmost am:
+        </v-col>
+        <v-col align-self="end">
+          <v-select
+            :items="stillPossibleShippingDays"
+            v-model="selected"
+          ></v-select> </v-col
+      ></v-row>
+      <v-row>
+        <v-col
+          ><div style="font-size:10pt;font-style:italic;line-height: normal;">
+            Gewöhnlich trifft die Sendung zwei, maximal drei Tage nach
+            Versanddatum bei Ihnen ein. Möchten Sie den Buttenmost lieber an
+            einem anderen Tag erhalten, dann können Sie das Versanddatum hier
+            einstellen.
+          </div></v-col
+        >
+      </v-row>
 
-      <v-row class="text-center" style="max-width:600px">
-        <v-col cols="12" md="6">
-          <v-text-field
-            v-model="firstname"
+      <v-row dense class="text-center" style="max-width:400px">
+        <v-col cols="12">
+          <v-text-field dense
+            v-model="fullname"
             :rules="nameRules"
-            label="Vorname"
-            name="Vorname"
+            label="Vorname und Name"
+            name="fullname"
             required
           ></v-text-field>
-        </v-col>
-
-        <v-col cols="12" md="6">
-          <v-text-field
-            v-model="lastname"
-            :rules="nameRules"
-            label="Nachname"
-            name="Nachname"
+          <v-text-field dense
+            v-model="adress"
+            label="Adresse"
+            name="adress"
             required
           ></v-text-field>
-        </v-col>
-
-        <v-col cols="12" md="12">
-          <v-text-field
-            v-model="street"
-            label="Strasse + Nummer"
-            name="Strasse Nummer"
-            required
-          ></v-text-field>
-        </v-col>
-
+        </v-col> </v-row
+      ><v-row dense style="max-width:400px">
         <v-col cols="3" md="3">
-          <v-text-field
+          <v-text-field dense
             v-model="plz"
             label="PLZ"
             Name="PLZ"
@@ -108,26 +105,22 @@
           ></v-text-field>
         </v-col>
         <v-col cols="9" md="9">
-          <v-text-field v-model="town" label="Ort" required></v-text-field>
-        </v-col>
-        <v-col cols="12" md="6">
-          <v-text-field
-            v-model="phone"
-            label="Telefonnummer"
-            name="Telefonnummer"
-          ></v-text-field>
-        </v-col>
-        <v-col cols="12" md="6">
-          <v-text-field
+          <v-text-field dense
+            v-model="town"
+            label="Ort"
+            required
+          ></v-text-field> </v-col></v-row
+      ><v-row dense style="max-width:400px">
+        <v-col cols="12">
+          <v-text-field dense
             v-model="email"
             :rules="emailRules"
             label="E-mail"
             name="mail"
             required
-          ></v-text-field>
-        </v-col>
-        <v-col cols="12" md="12">
+          ></v-text-field> 
           <v-textarea
+          dense
             name="input"
             label="Bemerkungen"
             value=""
@@ -139,8 +132,10 @@
         <input type="hidden" name="Liter" v-bind:value="zahl" />
         <input type="hidden" name="Preis" v-bind:value="preis" />
         <input type="hidden" name="Porto" v-bind:value="porto" />
-        <v-col cols="12" md="12"
-          ><v-btn color="primary" elevation="2" large type="submit">
+        <v-col cols="12" md="12">
+          Heute ist der
+          {{ heute.toLocaleDateString("de-CH") }}.<br />
+          <v-btn color="primary" elevation="2" large type="submit">
             Jetzt bestellen</v-btn
           >
         </v-col>
