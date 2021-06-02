@@ -3,7 +3,7 @@ const qs = require("qs");
 const axios = require("axios");
 const Base64 = require("crypto-js/enc-base64");
 const hmacSHA256 = require("crypto-js/hmac-sha256");
-const baseUrl = "https://api.payrexx.com/v1.0/?instance=buttenmost";
+const baseUrl = "https://api.payrexx.com/v1.0/";
 
 const querystring = require("querystring");
 
@@ -50,21 +50,25 @@ exports.init = function(instance, secret) {
 };
 
 exports.handler = async (event, context) => {
-
+  const params = querystring.parse(event.body);
+  const output = JSON.stringify(params)
+  const name = params.surname || "World";
   // where you want to consume the payrexx module:
   const payrexx = this.init("buttenmost", secret);
   
   const response = await payrexx.createGateway({
-    amount: 100,
+    amount: params.Preis*100,
     // add more fields here
   })
-  if (response.status === 200) {
-    const gateway = response.data.data[0]
+
+  //if (response.status === 200) {
+    const gateway = JSON.stringify(response.data.data[0])
+    
     // here you will get the gateway
-  }
+  //}
   return {
     statusCode: 200,
-    body: `Hello,`,
+    body: `Hallo ${params.forename}, hier kommt der Link zum Zahlen: ${response.data.data[0].link} .............................................................................................................................. ${output} ......................................................................... ${gateway} `,
   };
 
 
