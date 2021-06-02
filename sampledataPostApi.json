@@ -1,0 +1,992 @@
+{
+    "info": {
+        "_postman_id": "f72193a1-1a42-4a21-9668-f405c930773e",
+        "name": "Wedec CS Collection Kopie Kunde",
+        "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Authorization code grant flow",
+            "_postman_id": "db3e1341-bfc3-4976-9983-fa983f760130",
+            "request": {
+                "auth": {
+                    "type": "oauth2",
+                    "oauth2": {
+                        "addTokenTo": "queryParams"
+                    }
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "https://wedec.post.ch/WEDECOAuth/authorization?client_id=50d6ebeae89080d7997ddbd419718825&scope=WEDEC_READ_ADDRESS+openid+profile+email+address&response_type=code&redirect_uri=https://post.ch&nonce=f5bb9f70-2&state=bbe6606b-b",
+                    "protocol": "https",
+                    "host": [
+                        "wedec",
+                        "post",
+                        "ch"
+                    ],
+                    "path": [
+                        "WEDECOAuth",
+                        "authorization"
+                    ],
+                    "query": [
+                        {
+                            "key": "client_id",
+                            "value": "50d6ebeae89080d7997ddbd419718825"
+                        },
+                        {
+                            "key": "scope",
+                            "value": "WEDEC_READ_ADDRESS+openid+profile+email+address"
+                        },
+                        {
+                            "key": "response_type",
+                            "value": "code"
+                        },
+                        {
+                            "key": "redirect_uri",
+                            "value": "https://post.ch"
+                        },
+                        {
+                            "key": "nonce",
+                            "value": "f5bb9f70-2"
+                        },
+                        {
+                            "key": "state",
+                            "value": "bbe6606b-b"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Token request",
+            "_postman_id": "fd423df5-1f37-40a2-9862-1a1498e998a7",
+            "request": {
+                "auth": {
+                    "type": "oauth2",
+                    "oauth2": {
+                        "addTokenTo": "queryParams"
+                    }
+                },
+                "method": "POST",
+                "header": [],
+                "url": {
+                    "raw": "https://wedec.post.ch/WEDECOAuth/token?grant_type=authorization_code&client_id=50d6ebeae89080d7997ddbd419718825&client_secret=705fe0d3b490a135cd0d68139c071653&redirect_uri=https://post.ch&code=iUkxvid_e4k813KgLWcNvYj2KAqK60r0ixe8W4kiMPY",
+                    "protocol": "https",
+                    "host": [
+                        "wedec",
+                        "post",
+                        "ch"
+                    ],
+                    "path": [
+                        "WEDECOAuth",
+                        "token"
+                    ],
+                    "query": [
+                        {
+                            "key": "grant_type",
+                            "value": "authorization_code"
+                        },
+                        {
+                            "key": "client_id",
+                            "value": "50d6ebeae89080d7997ddbd419718825"
+                        },
+                        {
+                            "key": "client_secret",
+                            "value": "705fe0d3b490a135cd0d68139c071653"
+                        },
+                        {
+                            "key": "redirect_uri",
+                            "value": "https://post.ch"
+                        },
+                        {
+                            "key": "code",
+                            "value": "iUkxvid_e4k813KgLWcNvYj2KAqK60r0ixe8W4kiMPY"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Token request Copy",
+            "_postman_id": "f56ca0d6-d802-43b3-8dd3-bb4c04ebbf00",
+            "request": {
+                "auth": {
+                    "type": "oauth2",
+                    "oauth2": {
+                        "addTokenTo": "queryParams"
+                    }
+                },
+                "method": "POST",
+                "header": [],
+                "url": {
+                    "raw": "https://wedec.post.ch/WEDECOAuth/token?grant_type=authorization_code&client_id=50d6ebeae89080d7997ddbd419718825&client_secret=705fe0d3b490a135cd0d68139c071653&redirect_uri=https://post.ch&code=iUkxvid_e4k813KgLWcNvYj2KAqK60r0ixe8W4kiMPY",
+                    "protocol": "https",
+                    "host": [
+                        "wedec",
+                        "post",
+                        "ch"
+                    ],
+                    "path": [
+                        "WEDECOAuth",
+                        "token"
+                    ],
+                    "query": [
+                        {
+                            "key": "grant_type",
+                            "value": "authorization_code"
+                        },
+                        {
+                            "key": "client_id",
+                            "value": "50d6ebeae89080d7997ddbd419718825"
+                        },
+                        {
+                            "key": "client_secret",
+                            "value": "705fe0d3b490a135cd0d68139c071653"
+                        },
+                        {
+                            "key": "redirect_uri",
+                            "value": "https://post.ch"
+                        },
+                        {
+                            "key": "code",
+                            "value": "iUkxvid_e4k813KgLWcNvYj2KAqK60r0ixe8W4kiMPY"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Implicit code grant flow Token request",
+            "_postman_id": "f7c96c1e-83ac-4447-8af3-48f571700c6d",
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "auth": {
+                    "type": "oauth2",
+                    "oauth2": {
+                        "accessToken": "eyJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBMV81In0.CdwCOqd0TxK1ujwWwHtJgfDiv4wLwEIT03DFpxPFExnDzcZQkeQWNKTxXQeqWjAl9hXzfAxZNnaEtnPCFok6I-kF0wdmxEMaKiTUzo_6ZhaIZ3HbRPI7KZkKMnC4NgyQK4ijLqS9LyzfK8-r8ZRTGGLMbMe9BLxsdKgrtlFuNvp00B60xFdboKSXEWBGjasi8-I8v9M-jdzEX0NvzEPdHeSZS0nUVkDQOWFGutC0Fgw_y0h35ejaqhlYd8N75GK8B5C6_242ndOsi5RXAuRMbkj38qRhd41OusEtBcAiQ8xfKzTWNtOMrynJzrUnj0skkWeCmpm_kwmC8RyQGSxpGQ.qWMTD2lFRM9lXY12.ArGL1m9NEsgSkwhS1Bp2MCfTEZ8hdw6JjOYfU3yJA52dABJd-jhi9dRZi4CGy8ixBGkAV3N_UXUwE1WjaZWKDtAWO9jvwsLS1ejWguIr3M_pBhQs3Y0_y5PvKER-NtNqXp5KsYHjgAs_98TvDlLuZF2ubtx4XLsxFucRJ6m0coUDQTp6qBqD3SVI7PwaAhHCMwQQJc88sie8PivtIOWrzwnBLH4lF4AmfyQeus6duzZOFjwGCwHMIr8YjcV9k9C-U9whdaSD5wHsHaq94V_S8ZwcKPAJR93DtZoLrN8MU6FsZ2SMyvKWVhNFQ-e8kjS7I4JlkFm4_EuxydQeLEl1nFrOmN6xsiASL4liiuEZ5EjCecju9hVqS-EvLfBnyUtU5AuCi9eH1S86JGtKuBOCauntGJjqYQ3cUyB6Zg4746eqs5JR4I9nISdySE5uw2sLePHAyzkjVRIvXQaX_Vel0PsjsyIpCKhpVkn-_IvIrPGoQCRv7OyKBUffRXvHjWG9lEwKV-6gfvnPqOH4CCHvUAoHmMz-8SULbckQi82Kijgjm5YPpOiO3cUr6uKnJUPepBuTaToEBwda62C8yav4dkk946tyQPKVW-PV2DyJTGndNEtIuiMRaJcu-mqrPxUi-huhE8EyrcXRA--WuD7uNaohi_JZxMUTjgiaT6xn14vqAGLO0MCpgq-sUff48oozNijEFSKv6KaKExn0WldXZY7m47V9i2u2eIf2lsQviFsKIXNKIKudlOPT4X7kV5Q0bgPgzg5VhxLP6-XWzYQ.mc0O66hK1uvNh6G4iFYfhA",
+                        "addTokenTo": "queryParams",
+                        "tokenType": "Bearer"
+                    }
+                },
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "value": "application/x-www-form-urlencoded",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [],
+                    "options": {
+                        "urlencoded": {}
+                    }
+                },
+                "url": {
+                    "raw": "https://wedec.post.ch/WEDECOAuth/authorization?scope=WEDEC_READ_ADDRESS&response_type=token&redirect_uri=https://post.ch&nonce=f5bb9f70-2&state=ca48d322-7906-40e4-b8d5-09933cbcce45&client_id=50d6ebeae89080d7997ddbd419718825",
+                    "protocol": "https",
+                    "host": [
+                        "wedec",
+                        "post",
+                        "ch"
+                    ],
+                    "path": [
+                        "WEDECOAuth",
+                        "authorization"
+                    ],
+                    "query": [
+                        {
+                            "key": "scope",
+                            "value": "WEDEC_READ_ADDRESS"
+                        },
+                        {
+                            "key": "response_type",
+                            "value": "token"
+                        },
+                        {
+                            "key": "redirect_uri",
+                            "value": "https://post.ch"
+                        },
+                        {
+                            "key": "nonce",
+                            "value": "f5bb9f70-2"
+                        },
+                        {
+                            "key": "state",
+                            "value": "ca48d322-7906-40e4-b8d5-09933cbcce45"
+                        },
+                        {
+                            "key": "client_id",
+                            "value": "50d6ebeae89080d7997ddbd419718825"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Client credential flow Token request",
+            "_postman_id": "79064af3-987f-4a1d-8525-b6b3991b7920",
+            "request": {
+                "auth": {
+                    "type": "oauth2",
+                    "oauth2": {
+                        "accessToken": "eyJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBMV81In0.m3OXhbWIEgc0z3iVBb0XHZy8TWBamOshgBIvdTkQWv7BDcq0WgOebh8PeIYv7Sh9T8im5KYf_cQm_Aa4Fvn_jJ6QoXGjRWLHCwpz7yaenihFopwxbRA99nzBPL8JmlDRnYIEAmahdottjuimZfVPJYp7BDJbZnLrL3VJ3btUF4vUzTAeaTIYBzwe7Q-5jQN0Dv1TL-cSnEWcb05CHSq1SW3S5TIG7qXaAmK1XvA4jWBkgyVMRyHwt9Mi77hJ2lDzWWXcbSGEt5wQC-zKdZ7_vhlWHzusjHrUjL5G3TzleJ7Jo9XpvbfQaEdPBKbmgUdB3IV8So4CSWXPMfaDQoIP0g.RcKkYYvhYwycGl_R.M6buPz7101eqCJzvllCkKaNLaAeVXTvJpgYDJOIpuSm9cX2Mp4wthTWC9s-8JfxwU63D3RVLZKLGG_oS_G9yy9GUDty-gygosfDomHPeQulDt-awdZHth-Udx5V0t0o7QixPBeWuWLLGaR1dzAgcXHqdJJtY00OhX9H-AU6v507R39T8bb4IS5oom2ExwA6aenhkL0PjaW-se5IRXCkb3G09W6Uv3U7dZbkvcy2RU1DoN1Pbcu0jp0U1BWyYV74JDEkR2FH4-HNMgsJMAcb-YP2SmGxvW0cGtZCa1dJAbTcZr7_dmFwcFnENu7Syi-O0wZ1MKiobia2TCAOQ318-RKFRDqDauzQ3aTSflhkxwVWboAj54oYcLGHmTRu33s_Aa809YaJ7zv-VR7Nihy5f9Ly048UBaulvnOOzCY7Df4c9aLpdpdTSpoKmLuH2EN18SJrWLGvPakKQxYUMI6jKAibeLiOORIK1BzcrnkMq9WklA_KbrglRMDTqujSfNUHOHFlCJkF8-cyG2UcA4PlRsW_g9zAfOigj27YhBurm0PNXfbJiexgc_zn8jdiUsFMzTP5r2BmX4zHidWv43RLi22bEwLS93hZeosr5hQ8TCRFXSDfySyBP-EV9gAJ2v97D_sRHWwM3_MlN78Bhz4yQaoCbVzj5txxWddOa-kJZAWCONMc6Y7t_FKxTSLmFrv1U-KsV36vEmHHxJOR-XOLS88NdgjJkYvDzipyhz7YqrCrb7FPQiXNqSTi6nQFgeNPb9MR_Oa4TH40.HP7fzdM0GwMo4emMIwsp3w",
+                        "addTokenTo": "queryParams",
+                        "tokenType": "Bearer"
+                    }
+                },
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "value": "application/x-www-form-urlencoded",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [],
+                    "options": {
+                        "urlencoded": {}
+                    }
+                },
+                "url": {
+                    "raw": "https://wedec.post.ch/WEDECOAuth/token?grant_type=client_credentials&client_id=50d6ebeae89080d7997ddbd419718825&client_secret=705fe0d3b490a135cd0d68139c071653&scope=WEDEC_DELIVERY",
+                    "protocol": "https",
+                    "host": [
+                        "wedec",
+                        "post",
+                        "ch"
+                    ],
+                    "path": [
+                        "WEDECOAuth",
+                        "token"
+                    ],
+                    "query": [
+                        {
+                            "key": "grant_type",
+                            "value": "client_credentials"
+                        },
+                        {
+                            "key": "client_id",
+                            "value": "50d6ebeae89080d7997ddbd419718825"
+                        },
+                        {
+                            "key": "client_secret",
+                            "value": "705fe0d3b490a135cd0d68139c071653"
+                        },
+                        {
+                            "key": "scope",
+                            "value": "WEDEC_DELIVERY"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Alternative Delivery Addresses",
+            "_postman_id": "53db644e-dd7e-41c8-b0d2-1a65975b8a2c",
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "auth": {
+                    "type": "oauth2",
+                    "oauth2": {
+                        "accessToken": "eyJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBMV81In0.Vxj-atS7kef2ckFy2KZ4o9fNGG9zPW-aL6031fUIjqo30H3gDGdjSDdY0HBUFfpTufRma7myiGtV_ksjNohWZQoggA0OPqJBFxrbKJtneZwGuoHlypsMdCjZUcyVqM0sdx-BfpSAMM2hHCG23xcwh3pVXlhLTSXfmDQb-iC4gyVn8LPpNWMC9loSo0S-bPRi8SIBNrU16pmC5CctieGz_tNLdAPlkvii3nzzYJqAf7jRsZLjcQH77nCLj6os1RnORZ5JHcXcG8bThTewF5GvaYCStb8tRe0qpyjXG3YS0Or18aZoVDdJyhwdt9fFes26tZNqtqr-O3r4vdX5nsPJ7Q.XqE80Rt3Xo1BDIUg.49GhT5XH-_a2TAnTNmkTkkAfVSNZssj7egh-GhkJERs4iafz_Z538sATn6AfyfYKxth5GqeN0ycp35FCy0MdKELplk00tFYZ-YYJbZruMo2Cz_6i9OF2_FSFc6WoDGTOn42HUHEGpHRYc-HVsJqlCNX7CZ06SneVI84tjtfRcOEoZ08DvvnTig3Ab_cHsk9jbQ-W4G-dUrlWcXw3F4BL1iYCZBxm2LSTa_obT6HDW6rmeEBomlX2-C1NEPr3A4umxj2tp47Yo-_eDOt35Iv7eqE1z0a_BZ7F2Tt62q2pvJetaotcaLni9xXa4MoO-LTj-VhhKZ30AjgXxoc3C5Xyt3CAHfr47j4H7gE3lo6X08nd-Gm0TFwU5t5OHDp4OwTymtDPJxQyGTe0i23o4dxYD5J6pLGsWK_YPd_hWzC2stE3YXxEJtiZtpTdj17q9KjUcFrcEFECLsjBZufjbtbYn3L1x5GWgI5aqiak7ZdmUSX0H2RPEDlpn4Qw2-z6fO79rXRbzDR4Zhn-wsYfUMAsgrIaNp1REq7WnSqwQF4uB5c7q5Cpk9cLGeL7Q-o2MSmt9Tou1PstxSdqUYjo5fVGyLaQhzMT_YznF7omh4zvB7Zdm2gOazlTOgBGmz3gaQXVBzrJADd-lnb5qLljYWrgKlZbHB5L7yaL9xuqrnpsl_5g8cciqk8-vh4jhuEp3U4a_zlWyl790SN_xGn_Fp9W4skbrwcSASdfjhJImft0ZBlpAjhsNjy5uqCp77ztm4cxjPHtMZ4fc75KrRiqsO8.cgknrCRXaTZ9_wkKR0lylA",
+                        "addTokenTo": "queryParams",
+                        "tokenType": "Bearer"
+                    }
+                },
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "value": "application/x-www-form-urlencoded",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [],
+                    "options": {
+                        "urlencoded": {}
+                    }
+                },
+                "url": "https://wedec.post.ch/api/address/v1/users/current/addresses",
+                "description": "The personal addresses of the end user"
+            },
+            "response": []
+        },
+        {
+            "name": " End user’s addresses query",
+            "_postman_id": "f3412831-cd8f-4c09-8141-c764d2fd2bed",
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "auth": {
+                    "type": "oauth2",
+                    "oauth2": {
+                        "accessToken": "eyJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBMV81In0.WrWm-uCGhipyIHQOR9u1UJ8DMeu4AMTPSo5SoPpl3NPdxmUDWnUSs8-aVKfLNVjSOKFDz4dhHPc1FXN8Xizfr442tyRl2ibFypugArwf8S72C4ngNRGkN79vTfkt9fsGSQL-Jb0Tmpo9yuvrWp1j_j9o9qyF82PoOPyngt5yGiMran5Q0T61OIoDOmYwsmIgB77Ee6A8mpdKex5MTj2jwHKVKi4QFoRdLC3tNOvNrd0LoHplcQMPekAq5c8okWBDAem5u_aMoBcXgMrfnbJrNls2k-h8IfVJVS2ah2LEFO5Y9th0cfs3BjuI8BcIVul1KTjQn5womS5dfVon_wuR1A.QCmJqF50E6n3UuJS.wQaij-JKleUeLRR1pDzE2Zf0CFeSeQUeT5t-823FZbIe9epqksPGnLkgqNffE5C7ZHUtp59BVUr3pTaxv0xHhI5U4eYkViWqjIrN8F4pPbyojn3x-46PUbk6lEFxtm_J1qdcngXHjrhOijBWySku5ZxJsy2QTdI8g3TX-Oj4w8N45NtEoWSmn8_rJdstxxbF7tlm8Vmi753jALji-MMecq_nfqm36eZiEjLGpotuTnJpTxaGU3BHhOmvrHp1WTKgww0TuabYyXesERT9oztV41SSvE_LvHqszdakn-VH-uCY6MTFUDTmKXF5ChD0dRrkzo74ZbgWUYOqeTLAh_PRJljkWHVP-jAXGGSgr_8BT4djfML8rOmZ2HWq4Q6-BKB0Jbp3WQpgoAq1EyORIx9JvzHv5f5MPxkNl_jipIaqbrajxjFYfV5oBk4JxpdT1XubAHmJRxHk2N1oIw4qCpxzescR5IVyVI2C7LxJa7bEe8VIXmiEOh39rUYXSBsExuVzehCTNbZUeKXOCl7DVeJTzvHNtf0qt0VJkVWJMcxysgpnWL3k31g_v-7GxTHg0U1YpMael1CzbzSBrcbRoJNUmXJpX2oMrB28-VJ7LXEn5GET3OdL6iQPdHVuKZcxI8l1QCnJJz9MzqCVxv0udSMGvWDf-tELUYogujlposWQAx763fyspxqj9Bc_aj1j1BqgDVJvVbtzs6kVcjW2ezO0Ku6GQKvCv2isAOOJ1NnENYSsu6V3YHLxa58qpgWZn5scHWc2h5EUtbLS3f54e71AYTiKBBc.Pyc9Cr4UEk8sdDkAH1WNmQ",
+                        "addTokenTo": "queryParams",
+                        "tokenType": "Bearer"
+                    }
+                },
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "value": "application/x-www-form-urlencoded",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [],
+                    "options": {
+                        "urlencoded": {}
+                    }
+                },
+                "url": "https://wedec.post.ch/api/address/v1/users/current/addresses",
+                "description": "The personal addresses of the end user"
+            },
+            "response": []
+        },
+        {
+            "name": "The main address of the end user",
+            "_postman_id": "fc43322a-a05a-4c2f-a1c0-5d60a312a0d7",
+            "request": {
+                "auth": {
+                    "type": "oauth2",
+                    "oauth2": {
+                        "accessToken": "eyJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBMV81In0.Sxy4tWDFwPqe99-bc7Z2IizRijMMt0MNZ7cQXYNFmAngX3DWV9Ig0xMMU5oGL2ZEcL-ERoI51OcQwNo_EBQTgISGrUUNf2smsxFkzDMitInGNDCfkAlVJrnmiZgQgqzhjBpWZ7MG2MDfh46c-wX4yXMJGme1d4kneDf8SZ8pqz1y0faNUgTF54ql4rFcEcPoo9mvLaKgjuQuC1UT2Ssw2j8cpLH499HNE_kJ83VI9HeP6RXsW2lHC04TT15J0emXK76zWvPK_uDL9VAZud8UARO6g6yEPT8mKkjEzPxol7h8ECGpN_gjRHEl84z8Wa6b8TlFmmbbVlR68YYmSihAUg.LIV27pfhlfZdRE8M.tnXQk_QVHbilwHusxVp0rGkNkosUMGrKYyV4JDhi43vNS3ggFtBqWGyNgKbPLvEC7qADwIMxh5DFBICWa8LguHvSevsagRe5t85mPPw3-GMtNUvKyyeypYeOZ9rTKvpaluN9mlbqaxTlIXl-fGEKdrabhcpx97SwPhxFYRbXvQtZuS3qvyjTWXMfqrqeQBOuVGf_m65c-fDMKcRQpB8y6VHOEobZuoNBT07j_y2LPjsll_zUtyrhVbko3KVMWErxQLoriafsCra6uLX7243gkup-HfL4L0CdJzgKkX1DQyg-AyXOHPT_esS5p2t6qbd1eIRc6Y2RHVWwQvdOlscE4YkgCCFlqhNmOAzd3eg_XMz1iBhxUzu0Iuo17lX2tiPpmPDQyHMI2L2JLw3cU_ymsXT2zirB-KYj2Pc7hZAVlorWTAkTRcAIM4BnG59QyHsoy2LarV7G20ivxiZ8zPW6qqHFzn2GeaB_BIzMFiBFDlRTPXCMG3E6wM75k_iAfH3SwDtmBqKeTi0ODMS3Jb6Ocf91kRDlDRYOGKbf5owcIU8luJ9zP5X0yVnHA81dBacGOqdJtpY-flHJanQ5L-bW7qLWotSK07fhmgZ4cyGzmAHjze9CQr9XboG8KXlyXxZupic8TO13Dfw5CUmQBUP-ZTpsBcHrAihooUhlstIrEyAnmrqQR2PMLETMnnc0Ous4zq3yGZ-6gAS_0m-c0JoHHaGnq6Tn8NC_cpK_6mlqQKlXEhTCQOZbsnv-OL77xK7bMbB1stG_g_rXcgHtsY0.LWQZKRRh9WpoTlA838_9TA",
+                        "addTokenTo": "queryParams",
+                        "tokenType": "Bearer"
+                    }
+                },
+                "method": "GET",
+                "header": [],
+                "url": "https://wedec.post.ch/api/address/v1/users/current/addresses/main"
+            },
+            "response": []
+        },
+        {
+            "name": "A single personal address of the end user",
+            "_postman_id": "8b2eb0be-adf9-4a16-b0ca-2c2d69bf0625",
+            "request": {
+                "auth": {
+                    "type": "oauth2",
+                    "oauth2": {
+                        "accessToken": "eyJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBMV81In0.GdwW9oXXECx-PMPtPJ7PQ-cjHfBV5MkFKCCOUviB-3DxKbF8-IScDewVapqCyivoMza9t2gQXWwNwyJwJIza5KOT6QbRWzVum0a1ZRZHk_a1ZLQFawGSpoeYeb05vVydP75LmC9OiItNzu34nx4xCKKxFuAZS9gQVw5BhviqCMQ1ikbyVz00xfUpCEqZRSgJRawEQqF_Eldrr-QH6OC_r1MIIALhjvXkF4uqWhruQfyUZvvdF-wxZ47rXZpN42AXAkTi2FvC-zVpNATHTgsRqm7Im9kwq1uaIHcT1FQa0NJPkGr_bsfZ4lKct_1-5u4VLcosg-TdbVqdWo-es2_51Q.AlrwRVg-vdpKa_5Y.6E4N85FEj2ykBtqwhspr6R6ekfSqtQ2CCN_Vs3mL506nrso1mgqH3nY3p57jE3vL7iyYfnELgjJ3vDxW2-7YnNERsRgk8Zctb36YApqleeewPySsRFqbrHSeLto3uQlzCop0Q0FnxkfshH0GTaqsugt99AypTeCAaphH4h9mheJRIeSbhbZ6-S54CbCkm7-LpwWLfPoEugFAC8SqJJ6RfbE6SS816r0PyWptoLqChXGl0yt_GQzXxVw4qcSFOJQ2AEjtyM28PjiW0U8dUiaJMgxnBBYcaQsC0gUuca9BQahIhmb3Ez4lElkBMOsJmnmqPjpR6Rk2EoiBXKO8veEfihPr49CY2Nr2R3x60nGNWNejkFiKcftHm0MuwD71rgMYVNNCfgsd4Z6XxV4EUBLKALI0HZjg9mZPgvm2MphrrshHmyIZyR_-EuR63-x0zhqTzifSgEab8agd9jFlzBZwG85pcc0C00DCsmhSiZ2FagLLWUnxZDLyKv-6hVGhccu1yQal1yR9IZpVckyWvmH05dKSL9oOBcLmRWSSsOkRi9K9mFO7t50kg1Hqv22CnA-QUfD9fiB5d3f5XGU4uU2yQjCnVqJ_uZX5k9o170KNxxUh3AnUzwDZpKyI0VNOsE8guK2APKrRR0zew9hPgcvq4bmB-V-RfD3hPwrXuRNLa0pXkkU59wUgmVYbBylaJl4Y1w2evCJdF13H5fvqgvJoXwg0Ktz3V2yIlt2_FVT1myRIO1bCdyTb_X2sUY44oAQ91BcDh3oudVE21PEURA0.Jbjxp8JtWDiV6AYl-U6MWg",
+                        "addTokenTo": "queryParams",
+                        "tokenType": "Bearer"
+                    }
+                },
+                "method": "GET",
+                "header": [],
+                "url": "https://wedec.post.ch/api/address/v1/users/current/addresses/e3089ed6-35cd-47ed-b477-143396f96ef4"
+            },
+            "response": []
+        },
+        {
+            "name": "Address validation Validate a given address",
+            "_postman_id": "e0aba910-a21a-45d8-81b0-5ba1de530cd1",
+            "request": {
+                "auth": {
+                    "type": "oauth2",
+                    "oauth2": {
+                        "accessToken": "eyJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBMV81In0.k_C3_4xawwp-otnNw4Xe-muLK1YdvbLeVXwoMI_EdQ9yPwFOsBefl3OfZN-zVwZCAFArJ2IfW_usSZ5CJElTVcpPO1PsQQg5sD9rt9SsUypM6sNjCnVeCjj9SDb7BBaq17h_i8d2oavNeYNiBqOkGDbAY0QGiNaR9Z6TI0uOYI49RFs6Pfjcvmx2rTBpCdoMhw6XoDPyuFyB22AYQ_serDF3BysTuN3cwEk92xdH4gnbSZSEPl1B8TsgT4PGLIRu3LZulAoH6IPis-ByDIYhdyNizpjg8SB5aOZWF6uUrNTy62815WD3_WnJuRZy4oQj6LXThyOquG5joeqW7J5eng.3FjjAtawUL5eWsPz.nh2oWBlhr2YbqDK6m5cuJkSq8HjYhM5F-h8gdPjNeDWCY-s66TeKn2Nq6QAqfzUoEO-vbF9XPg-B02IHD_4i_IuyvoRZX-hI7foIpj3_p-srkkh8gwuUsxbea-OSgvKeYs-XKisqlsvNcooMyDAwCx-oj951BXS7np1dSGbNWjuGVqeUp7W-OFRohKnVLMSNmf-0OG7wIKWuBaHgy8fEkRD-awqOHyTDB4cKLJ1dwTuEuMTGO2YHoHoDDCqdy3J_vFX1slZv72HtNmX6qBfnIBTbjEom6LxFpH0l7lJkVe1sYDvITP8deGb_-hwftPXkQUuK119GDhGcyVSNbzm3a8NUShOnXQ9-TSFWrYDogqvns8iwgQguGdah3IMErM3OsW4U0NVmI9zK1zcuVqXR8SzqhjIZihZeycJyRRXcBHQLgXJ9-Q0GguIJeL19Vl_JhWHP2LDImiNMcqLonU5iTlO5Euuv9lTvf7RK5hvmCv6EMCMW-CTNyKK6rPAJgsOdMgahSjf0_ye6Bwwy9-Iy1wr0S5mlszf6V5z8_rVJKJ5pYLsF6hAEZUnQeM1jshkdiz-Zifp4nokzTY9OFpGnVDgeGxDO4DdTZZaUeb3SMUfM69NfL8UpQAkSQIUBbbYKAv1LHcdX6DcJWDz7jVeITt2Yg9nZHMcM7mdxB-c2Qe6QET5UXTVKSbfDzz5Ls5ykZdeXdd0o0nzucuxm1CRZDAVo7iGeSM7aGPOc-EtPLF0SPf_ukKufyGyvYp0kLp9ir2Vb2kKkhJv-XU6x2znjpYLocQ.oar33ikWoOdStyDHHSMizg",
+                        "addTokenTo": "queryParams",
+                        "tokenType": "Bearer"
+                    }
+                },
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "\"addressee”:{“firstName”:“”,“lastName”:“”,“title”:“MISTER”},\r\n“geographicLocation”:{\r\n“house”:{“street”:“Serafino Balestra”,“houseNumber”:“20”},\r\n“zip”:{“zip”:“6600”,“city”:“Locarno”}}\"",
+                    "options": {
+                        "raw": {}
+                    }
+                },
+                "url": "https://wedec.post.ch/api/address/v1/addresses/validation"
+            },
+            "response": []
+        },
+        {
+            "name": "Address auto-completion Zip auto-completion",
+            "_postman_id": "aa740d13-409b-4a89-bac5-7c1b79567686",
+            "request": {
+                "auth": {
+                    "type": "oauth2",
+                    "oauth2": {
+                        "accessToken": "eyJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBMV81In0.b0dcgcP0rbJD27EIb5ox3ssmNcosp5vZp_E8amhGVCER0Q47HXluK1ZRBSZm8t5VnfExX1fvlCtKI5qEYD0h9QA7SY0Zqt51-kIyeF9rBdEpw7aoGzjCeb4hAFIwRgDqe_9glt_BeNOGSo0I0Kq5mKH3n8Prt6Wgo9OUVO3Q2lOs0Il3338v64nzfSItRGwfM6VfyS0fP0taatfelC1paDeIRCOY5qaT8JZ8LN1OcVS_dndpMxc8lghXOddaoi87vCDC2tsjgWiM4Sl2oZyHZ5ec8-maTiBiarBN5de4hLZoMdf1vXfvlF-g5sV6wN9eHajl1ebwKJ1m8gYUpOrHmw.kq9IqWizCQrMETRr.obD1AxIvTjIun-h_xgx5cTQ2sKGNRZLg-9yFjzAlX8kBY6fqSknMsTsTK4Sgul7Snv-rBbhR1tHlxZQ4c1o1gqTZ5h27NS8wTJMfUPiSFjM95YQCKcGjCZWgVQq7U_MFtGipkM4vsVkZRKLQp6AGZb9Uu5On4Zqdt-QyQzvvFncb-cU2yi7Tn9PDzBrjYm7sQq1QyPiuN7UCs8b6TcmZObbsq9ttFn0JSAVNG4grqwirFbPUUTLW51VwVmN-D-W1Fg-AKTSuD5mQQwQQ7jvRbY2_1LcUujHTZE4VK3gRtO9OuNTeOOLq_0SIQC1APGeag-oXDcA8CQgr4BZS8EpTcxFqTOU3DALlKS1f-A67K-3DWkj0d_4o8J152KeojI5QG9XYMkk6TKUvHXvviI51rPtGQu7JWx_1dup8I76rNiC7VFaPF_cOmDeAtAi7JbTT_WyicODlYmHIvjzFR9d0Ei2xNHzAbGXfj9HL0og26flznUHAmMhC5NUj_VDt8XR7BqikgIzKenTxWnukAjMVHe940J2TYBirK8was7u1rZWKXiIkPDQgUukm4FelUsT07bhuGYJmVatjhChJCVpo3nDrXvR-dRcoyVF-52_ayrICvzlza-VYvaFxVnFcUvMtigBVA-ta_WON-eaS90NDSVutgl7t6S71v7eFr9j_HkWSKS4awKKIEubN1guvbGiHygqbNWIIVv1MDLlTFvoC1v7CeCcfE_FbWvxoEFIUd9J6vFPDL7GMHhxvyrP2WJVklD8DIQ8VSLoSEwFtivzHMTQ49atNlI9J.ucechDH41KGAEA4pRokCIQ",
+                        "addTokenTo": "header",
+                        "tokenType": "Bearer"
+                    }
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "https://wedec.post.ch/api/address/v1/zips?zipCity=66&type=DOMICILE",
+                    "protocol": "https",
+                    "host": [
+                        "wedec",
+                        "post",
+                        "ch"
+                    ],
+                    "path": [
+                        "api",
+                        "address",
+                        "v1",
+                        "zips"
+                    ],
+                    "query": [
+                        {
+                            "key": "zipCity",
+                            "value": "66"
+                        },
+                        {
+                            "key": "type",
+                            "value": "DOMICILE"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Street name auto-completion ",
+            "_postman_id": "7cb4960b-4aaa-4b7e-8592-a3d824c59217",
+            "request": {
+                "auth": {
+                    "type": "oauth2",
+                    "oauth2": {
+                        "accessToken": "eyJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBMV81In0.TIhlriCQhP_iWC0lAT8U5OYmtL08hDBNtiGLLL8I3cJsGTEUwcVG6zSoDWXbYDgBUOpzrTQFEZuCXj-gc9w5PwwxcJtmIJcFKtoYNQLwaEz1oYKFCfFCzNRaJUjzczjp0a0suOUYpYQy6AfmMD6nS7QWKRw4HhCOuVcNrrJZDQQKe6nQIwkOvIrJnVFcCGgA0AqGE3L2zbu6hGKfvz0oSbwvrClffHf7DGJ2recP5Em5tY8JaSv2csQNZaAFvmPRA2pTN135nXlw6mBPqo63dd3Y_UfoNV6p5jhdZ6OF2E5Evq0smukzoMqDU8BcbyrprzooEnz7yDeugnm0JAONqg.fr1lPv4PUdxPVdQs.aWpEoVbdk4VJ-Buty48vQU-K_LQGo5U7WvmTKt7KYd2taVYdGHnzv2SkMitXVnsTklR0mOVpjB4WzBVHkb5_Gk-rurkc7JfmH5E7Ies4njLmFp8J30wghUK9JV2oLli2B62iELzog1dBoGya4bK9af3fqiqYJlCHqC4hCT-ntxitFgSm6Qx7q3mB2P51d_c97YAq7OUCpgKAuAJ9r_7xDVWzTc0OHbmwCF2DYrRBYdoodyGLkX1NNplXKrEQnIPkT2Ieo8J7zY3MKc7jUF9uqnD9hySzeKLeMmVFXFktHwlHlZS7LHM60oeioCfKWEyUZxmz-wyK3Y8qYMzmRz8ZMfoYU9G_cm9NZitWjeWDfFowGNCwj3Okn-Cbeyt1JYwrA6QmC7KsPn4p-dUlVAryZY9yPeiqOlhbTNDmFkjJFowK8efcM4hBoHIZN4jywDRs_lFEHNkfSlYrqmWb_Hh-i1So3KnxSLkNjJMUcFAzV1yjxHz_pxDpo9gEBDrq2hLZfKkf6As60EVLEuboPm-Jw60pbdm_k9DAIGLvivfPuLmcoJC2MQ_6vQK0ycY0RfF_ERrUhmtgben7e1ru324tU4tei_51VUXeTkJBnz4tvSHFOyiTR8MZW0BNmmY9usmrmCgGlyBCTTIpqtbB9Hxtw8rWWH1UZZbTbVSLQwdsb8H4SgM_Su1BH1WDo9uJModbTq0fuMEFQxNrhiDf1a6mYJYR0yXVsjyKHHAnofr0TfvpvqoIloq_R2U56AZ-HzoUtbK_RmkLoevHQSXKJBlZgzJfXWMzqbmv.Rgq4oF1V9YmSJ2tcP5cUCw",
+                        "addTokenTo": "header",
+                        "tokenType": "Bearer"
+                    }
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "https://wedec.post.ch/api/address/v1/streets?name=Via+Se",
+                    "protocol": "https",
+                    "host": [
+                        "wedec",
+                        "post",
+                        "ch"
+                    ],
+                    "path": [
+                        "api",
+                        "address",
+                        "v1",
+                        "streets"
+                    ],
+                    "query": [
+                        {
+                            "key": "name",
+                            "value": "Via+Se"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "House number auto-completion",
+            "_postman_id": "7d73968b-84a0-42c4-93b8-b14ae2c7e796",
+            "request": {
+                "auth": {
+                    "type": "oauth2",
+                    "oauth2": {
+                        "accessToken": "eyJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBMV81In0.RP6dIiR857hvbDGQTw3VWPx5aK2Z6FvvHwskDOw5g5Ir2t8lpA9uRDg_HV2RnLmqShImyySfVh2MuIRMCO6bIIaqSfa674xlASuPAI3CHnPSRaIeIS_574cHQjDaUcHeAblWx8qMSM9rUTc_DNDYbQKAl1xCzrW2shkLHi5scjAhUyrhwmgmmOnJQc-umYaVN2UXZNQ5nns69fjgBvjIKrY5jrdY3rF4KFFVuxxYKN4G4HnEHsj-GE1xs_Vin3kkioi7PohVgh2Krux5-DfHX29LlGZ-7-mtCzSPqv7RwlD9YMbzs945vEOMCdzWwQPpSi8wdrL_oX3lnKKWVZB_9w.MvmCPWyKinlGe9-y.G1m3ja3b7AZomESxnhp84MA879WZwPsDLRZTurF6s0o4DgsL_6KmoEbm1rpPQN26BjhSy3j0lNKaYdTCDz-zRFMfdwzJD2eU9wFXivE5Y0sJyd1GWZsv5QdvejmfmiI7YF4-y8btzxeHBruTjj16-vDRGAnHOaL8Wd7YgjfIjThrUWaKKcUC9qH5D2jeweioDDr9FIuEJd36LO0UwUbILKhcA0fatPrn1a1pvSsqgGhm7dsqI-iF17VInG-Vy3NuDgokjKw-xdfP5Vwuco8kBCfhOlYv0raO6dIp9k3XNXPVUna1CRq6Y8Fvnwu9n9h4MVslOme7Khj-Fylr59bquMx2kmZgG6YtT2-q4GL8uCL9YfKBPpz9nQlyrZsOJCLZv82y-DVNCT59TmYbunT_mk6HhzMba7VmRQRf4JhWuYVkNV-Iidxh4SQt-zqtq5yM_w1vUS5E1x3SJ8N6RR_23MaSNc19GKUehT7rqO-MG6zI7vncwxSohKw3NO1aixCU6uD8DDM0IFL89jQuhrIbOKJYOc4VppUE0ZxKYyaWoktzZuM1n9JS3J770KGWzYNVs1-BK1FS0TH5ze5g-qxMQOFA-dkBmHgeXYX0MKaohNL3EKyUQJcHbhHp0sEyiftm9-Qh7pzCR1Hs_9C0NaXsErS2tZe2XLvRG6Y9xTMEcevHAm_tdCaYkIaEULRodsvzIZmTF2uQZCsCkb5p7ifE2I1blZUgwaKemiJPJ4mA8UJAnS9HgrNjmuBXGy-Ez2nUc1n0OCRJzeOkVgRxpJXaX7sSUc5jvGBE.YEwuyNxJmH53z6KxwdKVlA",
+                        "addTokenTo": "header",
+                        "tokenType": "Bearer"
+                    }
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "https://wedec.post.ch/api/address/v1/houses?zip=6600&streetName=Via+Serafino+Balestra&number=2",
+                    "protocol": "https",
+                    "host": [
+                        "wedec",
+                        "post",
+                        "ch"
+                    ],
+                    "path": [
+                        "api",
+                        "address",
+                        "v1",
+                        "houses"
+                    ],
+                    "query": [
+                        {
+                            "key": "zip",
+                            "value": "6600"
+                        },
+                        {
+                            "key": "streetName",
+                            "value": "Via+Serafino+Balestra"
+                        },
+                        {
+                            "key": "number",
+                            "value": "2"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Delivery days query",
+            "_postman_id": "4fe25e07-c82f-4f55-ae67-77ec89e69ada",
+            "request": {
+                "auth": {
+                    "type": "oauth2",
+                    "oauth2": {
+                        "accessToken": "eyJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBMV81In0.snUezES-nrIx0FB2JNN1RZgHbsahKoaq1uSGxAhzmFu4pB0dDlPZL6-EN_SJLwfr0nz0hcC5t02ji32RtpY7I6ibm1kIKu5EGVLhGubvsrPh6HMRO1nL1DyGcDcU31S-oCsIBKbPSGPHjT-TcMb265GoN_MOFmtifVn2wRvaoCTlgCt1HYNFGNrZMpoMPQ55hakfUxH-KKcmWozjcguHSyXRrRsF7mtXnlmwHLTxcGuRkdNe7W2IegahXPW0A9YIXvfwGZeq7worJc9OJ2KVQFam5Uhc-ri06g0z6MhcKNZw6J8p4ijEINu2LcIVc6Dx6BnxtsRPO3ET356CHcs44w.appNbipfsX1t-XOp.w49xhZDC5Ua86uRk5p811aiYK1A7T1CAzx4Gy0Yztggk72b3acAyLEx9Mx2U4-GxblXwnxAo9DCTSMbbNZ9Z7o8MOaMn3v7KruJWK0fcE73-RxkJUmcNu1wT1I1BVz8Z4XjB-ZZY_RKrVEx5u97UWG9xsRcPRST1onAUmwHITrRkgaZI8fwtnzHGXfHMCCaCw3BEGi-HMwk9irCbf7-k4KJl0shLVCSh8_PNSQqBiGRTjhjHZTog_HdsI-qOel7fj8qKR5ZGhHT0uxLWoGDqJKpOGGiUh8P0xJt3P0F4IPiYqudJcos3lI1tl5HE6Q2EECCa4z3OeKi4j_B4rmX_64nPjtvbyWpCy5L3dxlbNEJ5DVbgKYLgoWaZohJWQrvFhKaCl7mRCMoJM3jmHpDoYCI36G-oXrtx5f9bwmzbExNdTXn_za5j0BRmo5cqeXHVcwSpFxCkAzdF0eB-_xLS-QYzu6U8hLV9uml5Mvz4d3RUCBc2uze86ccvuA2Q8GNGrFhWVO2EopeJoBZpjzAxXarcwM6zegPHNtZ_si4V8WKZwR-1So49dlhtxpSPBTSwXcZtBnYh7aLs_UqczdOIXbSO7md63HVRymeWlt1bCdgeg309oEc-k7sJkw9Bv2ZWiEO1h361caphTaRlIwoi9UZlc3ia2UfJk8ci4BSapDhzy6KFk18XfSSTR75g3_zjv-Z14JSgLxPSKIdm566QFXmymONZzz6EXPEIqJT0uu60Vy10jovaqNzrtvvAmxYWh9iQOHZEvVA.l2ePh-pJJzQPVyaWLaQZYw",
+                        "addTokenTo": "header",
+                        "tokenType": "Bearer"
+                    }
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "https://wedec.post.ch/api/delivery/v1/deliverabilities/when?address.geographicLocation.house.street=Serafino+Balestra&address.geographicLocation.house.houseNumber=20&address.geographicLocation.zip.zip=6600&address.geographicLocation.zip.city=Locarno&dayCount=3",
+                    "protocol": "https",
+                    "host": [
+                        "wedec",
+                        "post",
+                        "ch"
+                    ],
+                    "path": [
+                        "api",
+                        "delivery",
+                        "v1",
+                        "deliverabilities",
+                        "when"
+                    ],
+                    "query": [
+                        {
+                            "key": "address.geographicLocation.house.street",
+                            "value": "Serafino+Balestra"
+                        },
+                        {
+                            "key": "address.geographicLocation.house.houseNumber",
+                            "value": "20"
+                        },
+                        {
+                            "key": "address.geographicLocation.zip.zip",
+                            "value": "6600"
+                        },
+                        {
+                            "key": "address.geographicLocation.zip.city",
+                            "value": "Locarno"
+                        },
+                        {
+                            "key": "dayCount",
+                            "value": "3"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Test Kunde Reprod",
+            "_postman_id": "2b6d6f1e-799c-417a-a8fe-124e7057801e",
+            "request": {
+                "auth": {
+                    "type": "oauth2",
+                    "oauth2": {
+                        "accessToken": "eyJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBMV81In0.snUezES-nrIx0FB2JNN1RZgHbsahKoaq1uSGxAhzmFu4pB0dDlPZL6-EN_SJLwfr0nz0hcC5t02ji32RtpY7I6ibm1kIKu5EGVLhGubvsrPh6HMRO1nL1DyGcDcU31S-oCsIBKbPSGPHjT-TcMb265GoN_MOFmtifVn2wRvaoCTlgCt1HYNFGNrZMpoMPQ55hakfUxH-KKcmWozjcguHSyXRrRsF7mtXnlmwHLTxcGuRkdNe7W2IegahXPW0A9YIXvfwGZeq7worJc9OJ2KVQFam5Uhc-ri06g0z6MhcKNZw6J8p4ijEINu2LcIVc6Dx6BnxtsRPO3ET356CHcs44w.appNbipfsX1t-XOp.w49xhZDC5Ua86uRk5p811aiYK1A7T1CAzx4Gy0Yztggk72b3acAyLEx9Mx2U4-GxblXwnxAo9DCTSMbbNZ9Z7o8MOaMn3v7KruJWK0fcE73-RxkJUmcNu1wT1I1BVz8Z4XjB-ZZY_RKrVEx5u97UWG9xsRcPRST1onAUmwHITrRkgaZI8fwtnzHGXfHMCCaCw3BEGi-HMwk9irCbf7-k4KJl0shLVCSh8_PNSQqBiGRTjhjHZTog_HdsI-qOel7fj8qKR5ZGhHT0uxLWoGDqJKpOGGiUh8P0xJt3P0F4IPiYqudJcos3lI1tl5HE6Q2EECCa4z3OeKi4j_B4rmX_64nPjtvbyWpCy5L3dxlbNEJ5DVbgKYLgoWaZohJWQrvFhKaCl7mRCMoJM3jmHpDoYCI36G-oXrtx5f9bwmzbExNdTXn_za5j0BRmo5cqeXHVcwSpFxCkAzdF0eB-_xLS-QYzu6U8hLV9uml5Mvz4d3RUCBc2uze86ccvuA2Q8GNGrFhWVO2EopeJoBZpjzAxXarcwM6zegPHNtZ_si4V8WKZwR-1So49dlhtxpSPBTSwXcZtBnYh7aLs_UqczdOIXbSO7md63HVRymeWlt1bCdgeg309oEc-k7sJkw9Bv2ZWiEO1h361caphTaRlIwoi9UZlc3ia2UfJk8ci4BSapDhzy6KFk18XfSSTR75g3_zjv-Z14JSgLxPSKIdm566QFXmymONZzz6EXPEIqJT0uu60Vy10jovaqNzrtvvAmxYWh9iQOHZEvVA.l2ePh-pJJzQPVyaWLaQZYw",
+                        "addTokenTo": "header",
+                        "tokenType": "Bearer"
+                    }
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "https://wedec.post.ch/api/delivery/v1/deliverabilities/when?address.geographicLocation.zip.zip=6600&address.geographicLocation.zip.city=Locarno",
+                    "protocol": "https",
+                    "host": [
+                        "wedec",
+                        "post",
+                        "ch"
+                    ],
+                    "path": [
+                        "api",
+                        "delivery",
+                        "v1",
+                        "deliverabilities",
+                        "when"
+                    ],
+                    "query": [
+                        {
+                            "key": "address.geographicLocation.zip.zip",
+                            "value": "6600"
+                        },
+                        {
+                            "key": "address.geographicLocation.zip.city",
+                            "value": "Locarno"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "The information for the logistic product “PRI”",
+            "_postman_id": "fc4c5c2a-88c2-41d4-9f9d-d6bcd3550208",
+            "request": {
+                "auth": {
+                    "type": "oauth2",
+                    "oauth2": {
+                        "accessToken": "eyJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBMV81In0.iP5VyYwrXaAg1S5l-eGSOvXD73hzm3XDnnKQHsujoyh2rfIGfsaAHmcB0NalUW2SyIHee93CgJTxs1EmyemWF8uip67ZmAa4ZDC6DRZQu-d8I3ujMc3hEhf76_jL_2IlclN14XxVqp5IbTRb9llD2eYGrwk849k6F9GTJp3qUvD4fGJTD61BmjJtAu6mXiLmhtnVAJdJeBpD6swCHnmUDLGSoTeqvuKXFkQmha0JM5UE8tU2KaLY-ArZgF0hrKMYhXC15EpFQjI5TYY3OGHu63z3RhjLQp7dNw4urO9PtgXqfYVrPoEoaJ_8K8_MVXhyiz0Af2GIq063rjSOqTsEzw.SHvpkV_EhQlsLeFg.fDxVeRdGzxD_Ik-XmUJ9-TtfUF_Lxcnifgtfz_Jo4ytpx9DJmMTmvQwxmvpw-eEaKwockcTGbf3pziDMPdV_ge8je2XsZ6KFzfpAOz9NUtdtnhV_iFwy_hNs0W0HnwxSIRf_ghFL5Iwul8eXX-MVlWSrjpH5G9Mnby4quhh7aw83Ue1zNmWC2hT2TMNru_nPOc7TZh4CyZO3eE0hRZSLTwqJHqdH0uZNeKIiS76fVqpjyU4Z2qpMWqz__U9voz8JBZsFBUtnJxsEyUyG8zYa9qJZhVaorppcSZ5l7e5NqH8fda4jeBj3oU7WZ89gKQlFEasxb4l2FnQ98BOX1adQGK6S8KUZD44davhfESVgvT5oanZ9Axm5nriJSLRxTgihVFwniAnTVLYnpkq2BPV8V5-bp4ySHSSvCEw6HwBrEGbW0RE6wxke1pi8_h8vxxjNvzkbShrbtWNnjJKZLiaoy6jsKNeO4CuPZEp1iktpmmEwIiwHv9MQjKmwafIQnu1BLIMOVU7JSHxTMPRidrIK4e2xODuaf4oA5OhKepLj2CkF1m8FHrSIWF9JIF_zhZhbENLoyrlAcftzGMPWdEZHWzyAMt7jYL1EDQDIpNXaXrDW914HiXjOGfB2cf5IFIkZhn27HgkTkeob9kNaEIQCB9Z_0YKzwLz_LydtlRE74OHmj1ClCeNvA9z5AsqQtsmYheFe8uTW9od77xUkDAR6Ky8A_ikOGZDp7ohBtPHDAqEU_f4tanMo9nhH-4eKr3xkTQh37ALMKD8.4_MhtP6k-87j2FLWJ3ephg",
+                        "addTokenTo": "header",
+                        "tokenType": "Bearer"
+                    }
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "https://wedec.post.ch/api/delivery/v1/deliverabilities/when?address.geographicLocation.zip.zip=6959&address.geographicLocation.zip.city=Piandera+Paese&deliveryDates=2014-12-24&deliveryDates=2014-12-25",
+                    "protocol": "https",
+                    "host": [
+                        "wedec",
+                        "post",
+                        "ch"
+                    ],
+                    "path": [
+                        "api",
+                        "delivery",
+                        "v1",
+                        "deliverabilities",
+                        "when"
+                    ],
+                    "query": [
+                        {
+                            "key": "address.geographicLocation.zip.zip",
+                            "value": "6959"
+                        },
+                        {
+                            "key": "address.geographicLocation.zip.city",
+                            "value": "Piandera+Paese"
+                        },
+                        {
+                            "key": "deliveryDates",
+                            "value": "2014-12-24"
+                        },
+                        {
+                            "key": "deliveryDates",
+                            "value": "2014-12-25"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Client credential flow Token request Copy",
+            "_postman_id": "84392502-bf65-4c9a-bad3-c9a1a24a2802",
+            "request": {
+                "auth": {
+                    "type": "oauth2",
+                    "oauth2": {
+                        "accessToken": "eyJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBMV81In0.m3OXhbWIEgc0z3iVBb0XHZy8TWBamOshgBIvdTkQWv7BDcq0WgOebh8PeIYv7Sh9T8im5KYf_cQm_Aa4Fvn_jJ6QoXGjRWLHCwpz7yaenihFopwxbRA99nzBPL8JmlDRnYIEAmahdottjuimZfVPJYp7BDJbZnLrL3VJ3btUF4vUzTAeaTIYBzwe7Q-5jQN0Dv1TL-cSnEWcb05CHSq1SW3S5TIG7qXaAmK1XvA4jWBkgyVMRyHwt9Mi77hJ2lDzWWXcbSGEt5wQC-zKdZ7_vhlWHzusjHrUjL5G3TzleJ7Jo9XpvbfQaEdPBKbmgUdB3IV8So4CSWXPMfaDQoIP0g.RcKkYYvhYwycGl_R.M6buPz7101eqCJzvllCkKaNLaAeVXTvJpgYDJOIpuSm9cX2Mp4wthTWC9s-8JfxwU63D3RVLZKLGG_oS_G9yy9GUDty-gygosfDomHPeQulDt-awdZHth-Udx5V0t0o7QixPBeWuWLLGaR1dzAgcXHqdJJtY00OhX9H-AU6v507R39T8bb4IS5oom2ExwA6aenhkL0PjaW-se5IRXCkb3G09W6Uv3U7dZbkvcy2RU1DoN1Pbcu0jp0U1BWyYV74JDEkR2FH4-HNMgsJMAcb-YP2SmGxvW0cGtZCa1dJAbTcZr7_dmFwcFnENu7Syi-O0wZ1MKiobia2TCAOQ318-RKFRDqDauzQ3aTSflhkxwVWboAj54oYcLGHmTRu33s_Aa809YaJ7zv-VR7Nihy5f9Ly048UBaulvnOOzCY7Df4c9aLpdpdTSpoKmLuH2EN18SJrWLGvPakKQxYUMI6jKAibeLiOORIK1BzcrnkMq9WklA_KbrglRMDTqujSfNUHOHFlCJkF8-cyG2UcA4PlRsW_g9zAfOigj27YhBurm0PNXfbJiexgc_zn8jdiUsFMzTP5r2BmX4zHidWv43RLi22bEwLS93hZeosr5hQ8TCRFXSDfySyBP-EV9gAJ2v97D_sRHWwM3_MlN78Bhz4yQaoCbVzj5txxWddOa-kJZAWCONMc6Y7t_FKxTSLmFrv1U-KsV36vEmHHxJOR-XOLS88NdgjJkYvDzipyhz7YqrCrb7FPQiXNqSTi6nQFgeNPb9MR_Oa4TH40.HP7fzdM0GwMo4emMIwsp3w",
+                        "addTokenTo": "queryParams",
+                        "tokenType": "Bearer"
+                    }
+                },
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "value": "application/x-www-form-urlencoded",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [],
+                    "options": {
+                        "urlencoded": {}
+                    }
+                },
+                "url": {
+                    "raw": "https://wedec.post.ch/WEDECOAuth/token?grant_type=client_credentials&client_id=50d6ebeae89080d7997ddbd419718825&client_secret=705fe0d3b490a135cd0d68139c071653&scope=WEDEC_DELIVERY",
+                    "protocol": "https",
+                    "host": [
+                        "wedec",
+                        "post",
+                        "ch"
+                    ],
+                    "path": [
+                        "WEDECOAuth",
+                        "token"
+                    ],
+                    "query": [
+                        {
+                            "key": "grant_type",
+                            "value": "client_credentials"
+                        },
+                        {
+                            "key": "client_id",
+                            "value": "50d6ebeae89080d7997ddbd419718825"
+                        },
+                        {
+                            "key": "client_secret",
+                            "value": "705fe0d3b490a135cd0d68139c071653"
+                        },
+                        {
+                            "key": "scope",
+                            "value": "WEDEC_DELIVERY"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "WEDEC_DELIVERY Other logistic products",
+            "_postman_id": "ebe92f3f-2f61-4de4-bd75-ab964f162e47",
+            "request": {
+                "auth": {
+                    "type": "oauth2",
+                    "oauth2": {
+                        "accessToken": "eyJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBMV81In0.nLR8ntk0kC0pNwZ1iEOCYMZx58iNX6MJW4zaGfr3aNkFYwJ232xOGGaNIyAG3AGcPZQW6PW7d3LGmgJzAvWcI1_Xqr7PhvWwcAxaETwY4aivZzb14_JpUWWkAz_mkQUIuDFzIQ5mS-J-cWDpKS_gTXvpm7x6vif0YXL-gUfZ5xv6VYwdDCDwzg_loJK_bI1SFGpeF1MECEkGMt9Fjn-oTE2y3lR6LbJLsRWGTZZR_kEfsuA4RMkt1jbPJ2TrNp9m7vf0tI9re5GoX7HxVdi5stvoDGdjIHfUGdRvIGgSSImK2fOkwzVHJMqpvPXWYGzpdnHG7xK5PHmNfK-J_SHRYQ.wcg6KcsMNzYSOd_Z.zBh1_lnCSIelkd5YoxaRW9cac9aNTt7y4YPFzBowqZhKRgsuX7GNeUtdoSg8ZkWQb-JHyz_b6pJ8-Yq-OmJWJcXNCiGSei8MHuwPVlT__wjX-5U22LU3ppSou_j7GpdJJrAIZi9LH9MVKmnt6zdtcCU1avAMDs-0MYCtUpoU8JsbjUqbzC7LjlXyq6yXyEOVllP0w4mu_UmIgkPsu9QOlNGa_u4iLbQRMyaUSNQE83NBE4cuGuqlUW8DenmAZcJdEJ7fL-TPIUEzF3tM8RdLD7xuKJt-g95gGd3fz3QlNqMZ5FZWgf7jZkI3abdSZTFpVmZF1D4I2vOTXoMM6LuKGNMxYTFe0rpJP58h3cQYlInb7DcFMiqtSgqijE1RMu52Mn-fBRCyvsS0zp-97Mio3TyJWg6NMqLkTLZwlDdhpWQqT5MNJ_yl774wjqIT-4C7whDidn4_8dXNWq36snCY72LSJNuS0qWsEevz4XtDmhW1Uo4eTyd-gCKeq9tUpbDsvXacUmBXx5j9yFdbo8N6HwNi2nD8hxVqsID3VC_R9rn1yl-SHbO50Al-phNBAHeWAHlDdjFbbijvZKKi5oQV1lsYBT29swhiKjMdq9XJb4Ec-FYQzZoHryBw0GMzsPGrkuaFLvtMhn7-xHE7-Fl22HPG2PteNJNwfG9qpR5YLDTMZuIvwRAHrr956fBc0dVw52UYsCL2oZMzKiu-OMFkhjUvr2R8jF6PcTUlJTSTUvn8lHQ5o5-PGJiopXzwOam7kJWJrcSzYiE.GYbdkiOZMbEsSOYRnGuFxA",
+                        "addTokenTo": "header",
+                        "tokenType": "Bearer"
+                    }
+                },
+                "method": "GET",
+                "header": [],
+                "url": "https://wedec.post.ch/api/delivery/v1/deliverabilities/how/ECO"
+            },
+            "response": []
+        },
+        {
+            "name": "Information for all additional services",
+            "_postman_id": "65d03eb6-e595-4a8a-aa9c-59400e574405",
+            "request": {
+                "auth": {
+                    "type": "oauth2",
+                    "oauth2": {
+                        "accessToken": "eyJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBMV81In0.VnYVH8q5rKoMM8SAblZ99fiDDWAJ02Dc5FUbJo73L-RpKGCBAbOoJPMznonkKmBru7eqhyzyTy87kE9g-QyyMmZgHGeUX8_hmbcwNNeMh96I_RMfS7LWkTAV4JkoxnmWCtfGAaD_R6AYn0MGamU59IUYFqfqL0hvTFvWvWoHpJQ-4LhTwEVQag-g66WcBejEuzILcvxPu5Ouli5wAW76P2kZDRdMDlJSoJCAH2LbORNrx-R2XUNbJezilwQj9b2DzTXmhkR8vwT24zoTTqGs5VsErjRalRKdGTxAlY_deTg8O44kwl07b7OBivrPU_siWQ1-Ipw_FQkribQnp6d3lg.9bp6V6A_6I6rlQbQ.dTlBaqxLxwojkjiwdK3-im8FIuwcUdhRWBFauhYLjXG8Oen2LdUeu8u-jucCgsPLhYaHL2xFFA2ntXeLdgY_JYD2VtxpidcjKhIB3s_HH8zRq-DNynfeN1bJ3_i-89fYji9pdD1MPQt65H_JRI3VD9509-u3i9kgGtD11D_zktcAazqBjaBqY2hY4AT4bJEiFfyHmFyt5uFQfA5hHpeBePqpjcuW_hv0frLRFK5wB__vxHHZ-xeUz-XsE1oLEyBLZhtyEjBlhaOnSEwQVe1Cl0jEnhxJvPXlK9h-58gitwNabSU9F_EQsQPabgYupNhJwXkrUM6rjjfybJc3vGKvaUnHdV4QvgHvLiLedSAcIr8ElSE2HiSKeH2Iv9eUu6jyFpd38PZKW8n8yri6KIvUq8O4xFm_MBvzLPEOi2AD7vXKADKb0H_UUDDhFsxZUaq9OBkeQB72zOYjubu1ZVY-zbr4Ot20zMiL_kQgFsFCQOViSVh0Iu20140I_Ebm9TKVRQiH74STCfPQgcZ-Ey4d6H-CaumXOHxzlcvwrpIblT7wQnidxRrbD2UngjtiI-TTZe7msn-wFtJIHpZfj793iQY6fksPyOG2rDnlx3MeW1-CL93YMZGwplzPeoCPVjvZWUJKSj_0Xq7fydKSakTeMdNtPaxbg9DZtX0zFEhVW5dxmZuNkI8GH8XEAZOqD4LKTaNxh8hIO88-sW9S-9mDX2CwwMRNGi7i5eUKsENtRsd_xV9nNtMjBZv-0GBjtnJLg3bw7AvoBqE.u1YEfELFr4OqesdRd-41_w",
+                        "addTokenTo": "header",
+                        "tokenType": "Bearer"
+                    }
+                },
+                "method": "GET",
+                "header": [],
+                "url": "https://wedec.post.ch/api/delivery/v1/options/additionalservices"
+            },
+            "response": []
+        },
+        {
+            "name": "Information for all delivery instructions",
+            "_postman_id": "eb8b61dd-e810-4348-b7bf-f551bb14dba4",
+            "request": {
+                "auth": {
+                    "type": "oauth2",
+                    "oauth2": {
+                        "accessToken": "eyJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBMV81In0.dZEhtDWI5oh7ExrVis1MPQfw0KEiKKu0avAwxPGN8o2-TM65nulbTE8VHsupf1v9tsy79ZaZHN2k486DsCl0F65ELI0FKB7IOoqUyQm7rMcYP_5dsQ5xiFxh2_oertVWKLqefMAkexS4A8_Lljqw5JAqVspm8TyTYybVHEW43hxv8ajMLDYhAbjO0jz8zkfd1uXQGOg5fAI2VryLnKVqws1VS-X-_siuQ2-dPq5E-eluYMJJfwJLur_u1bGKFge_yCZbpHeY92LA2ow1_WT23aNo9Wcwu-3MFgR19-s5XzUUGLDEuXhmw42fYk7nejzB3lq7o7_hgH-uO4oIxlSRjQ.__52QgCrBv5KTPXc.ocIcSx1uVROJLOGABCZAfOSrRSZ-NJJQ6JSu1L_uCjmgeK1THGGl5i22gM9Bl6nz4jJ7qX2IUYbcFdRdhVqOa0n9yXNA1XxQffWZ33rhEb-Yvp860D7dXMnExCVmF7ECVgBpyXPB7svIHeacgU7pVEqYub8_LMecL8mjccWkq157bAQgmXeQJyIFzX15p7cJAjQ_eS2rUv_1SUQqDn-95XasvUseVehdrrv_dcll13k0AvEHMMZVJkXkL1b7_LiWLruRsQC_2r81nSrPNaW6jVCcYg3hkjhe93B64A7MSaF99S379YSa2D5zX2Bxy2Sbz06KQPMhvRfBGJUyuo6sy6FZVTFVKZtcZ4Xs1alWD6ZYS3tSu-KCfDjSjdScIcejuUqDFtCODVRN2xSmRDhDSlq6Ue5uQ0GhSx2TaB0pOXvALYsvY8ET4a2Co_qARsZ9AwCGbvvzBBGJEIINW_BlcSwaZzZmNjJ9Jga854iQTAKxNHedOgzvj5Fr68FuJ0Lwduw03qGNmZ3B0KWtBjr1Culqhkp_4r1bTiFbg_Ku07SZqaGjcMGEDjO7PxaiRuk_K8e3ECt5-FGBkumB8yLfeS19eHmt2FFZMrLwvMO7MExP_avlsVKGuo3wEWkrStUbQel7xOAuffzkaWu9go9lG321z8rv5TcNptdc20wSo87MBeDWWYwbacSI1-I2pMfdGJ983ul3lsbDxPCFrUT8R-DozNZygVxRb0uMmWD27rfIBmQsktajDelWb_x2bCoiyiYhygnG8AQ.pmeQt21mQ2RAFHAi3r1P9Q",
+                        "addTokenTo": "header",
+                        "tokenType": "Bearer"
+                    }
+                },
+                "method": "GET",
+                "header": [],
+                "url": "https://wedec.post.ch/api/delivery/v1/options/deliveryinstructions"
+            },
+            "response": []
+        },
+        {
+            "name": "The list of holidays",
+            "_postman_id": "cd3b5447-efeb-4992-a31b-e57e01c0b299",
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "auth": {
+                    "type": "oauth2",
+                    "oauth2": {
+                        "accessToken": "eyJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBMV81In0.gYz6nVb4z4hyIwt7iIAXrXpR_VaurgMjGCMG7Y-heOncy_QgoViaylR2ktKUfQK7uaKLJgCzcla2IYHYo6ner0LaJbyL64qDIbjwbyk5BK0DmgQoSBKiQxbYmUWcI0QohGXYzYVNZ5ce3Cgx-O-QvnHueKaeDq25VraKwM0GLOXueC7I3KiBjzojppSwc0isgPR7ao3CqRc4kSORMt4TDBNbWl8hbMjNjYxZFvuuvbGlsvqm_HbjwifvdhO9Oe__oyL3KXorBosg6bp2iB9IIsP8vbP3r11M4spc7kBpyqifXsM-JwMgzPUBUYlR--bVs16rhF-B40I3R87cgBOypA.prWpb6yJEUiSZrx9.rwv4wi5Epvfo7TmyyoAG2mz3GwaPIwcaaoZPJx64AeUv1kSV1TWbDyrQfrcR5ISpNzfyjYGV3nsvRn9S0tC0a_EIZHJKeiTvpXShazmhJBZcIyoFlGNr5DlxGCu3MxXOQ6LUUvdBDgiEpEJpREIYECK6JR3WxTvwEsTKCvLRdzAmEAmaQqLTVk8Y1wDiUIz-u2_VX3I5S0KP-7VnDUEEoeOi53pOCQvF_q1iJcTsqhF7QDm6vQJHEXjY44P38Eat3MqUHbSe8H8CA8r6MhB-7AjH2JdrDt1uJko8yv7McQH-paEyCWib2DzraJqGk_rPWADoSuaxuwHw93RG9wgqXUemgzHhyEnVbjRZFjfDdq7xOZ19mNSNpYYVR0INOzP1sYl75AcnCuCqL8qOFfkVaXAq7BVKxe5YC7x6Ylk0yJEYRgy-UNnRsE-yslCqisBbGoTF9cp2OQksMO6qXivpJgT_9WC1Vt3TEFwW-V-58FctO08JFjT1vK1l2ME9QyOd2j7N7v4sWHS-_AFNu7f7xmg7XcaQlzKIS8nZHSXuONarlKMwzHDa5FEn8iUBiNQupW-T8kfO-ul4hmaREK-Cqe1YCNAGzcnIwrGCRpLwqvtdgn03FJIB7jzRPkTxeRSx8g4lPeTPWliX8jJ3CuVNf3JfMHSXbi0bquZVGqdwHFCbgSQUFaVWeAp8Qedh6uSBzc2fKjoVgoeB2ZcHIutge_e8lw55G248w7T_r_9qstbX6tB9KRvpDhHq0lF1xPxmBwGLTbFhTuE.7vHimCAGPLX-tqjmZU5HpQ",
+                        "addTokenTo": "header",
+                        "tokenType": "Bearer"
+                    }
+                },
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "value": "application/x-www-form-urlencoded",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "formdata",
+                    "formdata": [],
+                    "options": {
+                        "formdata": {}
+                    }
+                },
+                "url": "https://wedec.post.ch/api/delivery/v1/options/holidays",
+                "description": "https://wedec.post.ch/api/delivery/v1/options/holidays"
+            },
+            "response": []
+        },
+        {
+            "name": "https://wedecint.post.ch/api/barcode/v1/generateAddressLabel",
+            "_postman_id": "2178bd26-fe3b-4ef0-80bc-2edc6c8b4e4e",
+            "request": {
+                "auth": {
+                    "type": "oauth2",
+                    "oauth2": {
+                        "accessToken": "eyJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBMV81In0.c9BMVUEhxpQBHU1XDb97lT8F-wmY8ydMLoOK7ksywV04lcGfQ1lhqmQDZ-Gop3Je2P1FXToG82OMUNZdjp109y2bxF7qCR00vhaCKeLpBX70gh13t6I0rCvsqzloRglOsrPkyFuYxII1rGgxZUjGIm1WJ0TDkhcgGpS0Syoovd4FkTdnrypLrWNgztSq8QG49dUMCfQN6O8tMdkJJvGn9-CckoCfjAYPbNAI3Z_eUfruWJUSUw2V9H9W97b0geZ5_Xm35AOJTWDl0VaMpYttZGJgpHtu_zAm_3z75pLEnv6IoDFK3WM_8X8QC0FPLr4vLjW_wNpN3EwAaIvlx8Q2AQ.hxgvX0Vvd8v5JWA6.Ka5ExVWXvhiAq-WVLkF9XTHJcManL-bqq7z7bOEF5SOIl3fx9G46HSIOcsQJ30oqWsTVK8vqZTfICtf-vu6_iiyZuEekjMMNth9O2trCPxsDvQgGKzqTXrw_5KtULE97sXYsUjFDhUMgUBHhqrKqAY0WfagWtC5KU_n9CB3eaQt6-59NQCCY9wvLC4MoNAnVZC1jBYx78p3evqDiapy5gDw7B1O6d8mBEob6kFu9YrKFZLzBRIZJFRYE6rz_GqLf_lMCy4gNAIEoj7sq1qx9E7tLZg0TNSSI0OGfOWIOFlY9vAj83P2q_LmHHTDQHMmuw8d8bdo0h3a--Od32qLwoZpyRswqJizPM-W7eKRIWlclORNm-xsPj06MOuMZMbRyVD68xv9H7OkNZYU3LRs1XE3k7py4NFwoeBh-Gdw7bGt7dUKKRc6wxcFp1ErfnHaPTZpR8Rx0qMhQZnx-PL5Vc5ujy_mhz0ViuWfk-QwL-alZ3HEI2j1oiUg4nP-I-EQRhdBYVMkFz8TLSP6LRLOpcgwnnlq7LK7BXUO7dq2HSQnVWcvrtbu8qn3wj_uR2RIOvbV08Ot5WCBtBIw281RaQxNlgYSTjOFJ9u7MdZ8ez0CzY9IhocPu_H3iIJO-OIz5jttVZgchzHDgTi-ZovTZFSyIYOxn_XzG_RRXvXQ7QxcYLvOCb66ycUCO0cS1NjWWz9YXwd8H-gMiiMEvSSU4iqa3tcwJwVOgQqdmpAlLvDoy8Zq3jFq9xgrzF8J2T7-jSNmz1ZAOM_mGnE5CzUU.lFyRDvzZf-9ABTpExO1KUw",
+                        "addTokenTo": "header",
+                        "tokenType": "Bearer"
+                    }
+                },
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{ \"language\": \"DE\", \"frankingLicense\": \"string\", \"ppFranking\": false, \"customer\": { \"name1\": \"string\", \"name2\": \"string\", \"street\": \"string\", \"zip\": \"string\", \"city\": \"string\", \"country\": \"string\", \"logo\": \"string\", \"logoFormat\": \"string\", \"logoRotation\": 0, \"logoAspectRatio\": \"EXPAND\", \"logoHorizontalAlign\": \"WITH_CONTENT\", \"logoVerticalAlign\": \"TOP\", \"domicilePostOffice\": \"string\", \"pobox\": \"string\" }, \"customerSystem\": \"string\", \"labelDefinition\": { \"labelLayout\": \"string\", \"printAddresses\": \"NONE\", \"imageFileType\": \"string\", \"imageResolution\": 0, \"printPreview\": false }, \"sendingID\": \"string\", \"item\": { \"itemID\": \"string\", \"itemNumber\": \"string\", \"recipient\": { \"postIdent\": \"string\", \"title\": \"string\", \"personallyAddressed\": true, \"name1\": \"string\", \"firstName\": \"string\", \"name2\": \"string\", \"name3\": \"string\", \"addressSuffix\": \"string\", \"street\": \"string\", \"houseNo\": \"string\", \"floorNo\": \"string\", \"mailboxNo\": \"string\", \"zip\": \"string\", \"city\": \"string\", \"country\": \"string\", \"phone\": \"string\", \"mobile\": \"string\", \"pobox\": \"string\", \"email\": \"string\", \"labelAddress\": { \"labelLine\": [ \"string\" ] }, \"houseKey\": \"string\" }, \"additionalData\": [ { \"type\": \"string\", \"value\": \"string\" } ], \"attributes\": { \"przl\": [ \"string\" ], \"freeText\": \"string\", \"deliveryDate\": \"2018-11-21T17:32:28Z\", \"parcelNo\": 0, \"parcelTotal\": 0, \"deliveryPlace\": \"string\", \"proClima\": false, \"returnInfo\": { \"returnNote\": false, \"instructionForReturns\": false, \"returnService\": \"string\", \"customerIDReturnAddress\": \"string\" }, \"weight\": 0, \"unnumbers\": [ 0 ], \"dispatchInfo\": { \"dispatchDate\": \"2018-11-21\", \"dispatchTime\": \"17:32:28\" } }, \"notification\": [ { \"communication\": { \"email\": \"string\", \"mobile\": \"string\" }, \"service\": \"string\", \"freeText1\": \"string\", \"freeText2\": \"string\", \"deliveryInstructions\": [ 10 ], \"dynPic\": { \"urlPic\": \"string\", \"urlLink\": \"string\" }, \"language\": \"DE\", \"type\": \"EMAIL\" }",
+                    "options": {
+                        "raw": {}
+                    }
+                },
+                "url": "https://wedec.post.ch/api/barcode/v1/generateAddressLabel"
+            },
+            "response": []
+        },
+        {
+            "name": "Address validation Validate a given address Copy",
+            "_postman_id": "503b2d24-bb81-4429-8418-46eb39a59f11",
+            "request": {
+                "auth": {
+                    "type": "oauth2",
+                    "oauth2": {
+                        "accessToken": "eyJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBMV81In0.k_C3_4xawwp-otnNw4Xe-muLK1YdvbLeVXwoMI_EdQ9yPwFOsBefl3OfZN-zVwZCAFArJ2IfW_usSZ5CJElTVcpPO1PsQQg5sD9rt9SsUypM6sNjCnVeCjj9SDb7BBaq17h_i8d2oavNeYNiBqOkGDbAY0QGiNaR9Z6TI0uOYI49RFs6Pfjcvmx2rTBpCdoMhw6XoDPyuFyB22AYQ_serDF3BysTuN3cwEk92xdH4gnbSZSEPl1B8TsgT4PGLIRu3LZulAoH6IPis-ByDIYhdyNizpjg8SB5aOZWF6uUrNTy62815WD3_WnJuRZy4oQj6LXThyOquG5joeqW7J5eng.3FjjAtawUL5eWsPz.nh2oWBlhr2YbqDK6m5cuJkSq8HjYhM5F-h8gdPjNeDWCY-s66TeKn2Nq6QAqfzUoEO-vbF9XPg-B02IHD_4i_IuyvoRZX-hI7foIpj3_p-srkkh8gwuUsxbea-OSgvKeYs-XKisqlsvNcooMyDAwCx-oj951BXS7np1dSGbNWjuGVqeUp7W-OFRohKnVLMSNmf-0OG7wIKWuBaHgy8fEkRD-awqOHyTDB4cKLJ1dwTuEuMTGO2YHoHoDDCqdy3J_vFX1slZv72HtNmX6qBfnIBTbjEom6LxFpH0l7lJkVe1sYDvITP8deGb_-hwftPXkQUuK119GDhGcyVSNbzm3a8NUShOnXQ9-TSFWrYDogqvns8iwgQguGdah3IMErM3OsW4U0NVmI9zK1zcuVqXR8SzqhjIZihZeycJyRRXcBHQLgXJ9-Q0GguIJeL19Vl_JhWHP2LDImiNMcqLonU5iTlO5Euuv9lTvf7RK5hvmCv6EMCMW-CTNyKK6rPAJgsOdMgahSjf0_ye6Bwwy9-Iy1wr0S5mlszf6V5z8_rVJKJ5pYLsF6hAEZUnQeM1jshkdiz-Zifp4nokzTY9OFpGnVDgeGxDO4DdTZZaUeb3SMUfM69NfL8UpQAkSQIUBbbYKAv1LHcdX6DcJWDz7jVeITt2Yg9nZHMcM7mdxB-c2Qe6QET5UXTVKSbfDzz5Ls5ykZdeXdd0o0nzucuxm1CRZDAVo7iGeSM7aGPOc-EtPLF0SPf_ukKufyGyvYp0kLp9ir2Vb2kKkhJv-XU6x2znjpYLocQ.oar33ikWoOdStyDHHSMizg",
+                        "addTokenTo": "queryParams",
+                        "tokenType": "Bearer"
+                    }
+                },
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "\"addressee”:{“firstName”:“”,“lastName”:“”,“title”:“MISTER”},\r\n“geographicLocation”:{\r\n“house”:{“street”:“Serafino Balestra”,“houseNumber”:“20”},\r\n“zip”:{“zip”:“6600”,“city”:“Locarno”}}\"",
+                    "options": {
+                        "raw": {}
+                    }
+                },
+                "url": "https://wedec.post.ch/api/address/v1/addresses/validation"
+            },
+            "response": []
+        },
+        {
+            "name": "Client credential flow Token request Copy",
+            "_postman_id": "210bde58-53dc-437a-9956-c1472193e874",
+            "request": {
+                "auth": {
+                    "type": "oauth2",
+                    "oauth2": {
+                        "accessToken": "eyJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBMV81In0.m3OXhbWIEgc0z3iVBb0XHZy8TWBamOshgBIvdTkQWv7BDcq0WgOebh8PeIYv7Sh9T8im5KYf_cQm_Aa4Fvn_jJ6QoXGjRWLHCwpz7yaenihFopwxbRA99nzBPL8JmlDRnYIEAmahdottjuimZfVPJYp7BDJbZnLrL3VJ3btUF4vUzTAeaTIYBzwe7Q-5jQN0Dv1TL-cSnEWcb05CHSq1SW3S5TIG7qXaAmK1XvA4jWBkgyVMRyHwt9Mi77hJ2lDzWWXcbSGEt5wQC-zKdZ7_vhlWHzusjHrUjL5G3TzleJ7Jo9XpvbfQaEdPBKbmgUdB3IV8So4CSWXPMfaDQoIP0g.RcKkYYvhYwycGl_R.M6buPz7101eqCJzvllCkKaNLaAeVXTvJpgYDJOIpuSm9cX2Mp4wthTWC9s-8JfxwU63D3RVLZKLGG_oS_G9yy9GUDty-gygosfDomHPeQulDt-awdZHth-Udx5V0t0o7QixPBeWuWLLGaR1dzAgcXHqdJJtY00OhX9H-AU6v507R39T8bb4IS5oom2ExwA6aenhkL0PjaW-se5IRXCkb3G09W6Uv3U7dZbkvcy2RU1DoN1Pbcu0jp0U1BWyYV74JDEkR2FH4-HNMgsJMAcb-YP2SmGxvW0cGtZCa1dJAbTcZr7_dmFwcFnENu7Syi-O0wZ1MKiobia2TCAOQ318-RKFRDqDauzQ3aTSflhkxwVWboAj54oYcLGHmTRu33s_Aa809YaJ7zv-VR7Nihy5f9Ly048UBaulvnOOzCY7Df4c9aLpdpdTSpoKmLuH2EN18SJrWLGvPakKQxYUMI6jKAibeLiOORIK1BzcrnkMq9WklA_KbrglRMDTqujSfNUHOHFlCJkF8-cyG2UcA4PlRsW_g9zAfOigj27YhBurm0PNXfbJiexgc_zn8jdiUsFMzTP5r2BmX4zHidWv43RLi22bEwLS93hZeosr5hQ8TCRFXSDfySyBP-EV9gAJ2v97D_sRHWwM3_MlN78Bhz4yQaoCbVzj5txxWddOa-kJZAWCONMc6Y7t_FKxTSLmFrv1U-KsV36vEmHHxJOR-XOLS88NdgjJkYvDzipyhz7YqrCrb7FPQiXNqSTi6nQFgeNPb9MR_Oa4TH40.HP7fzdM0GwMo4emMIwsp3w",
+                        "addTokenTo": "queryParams",
+                        "tokenType": "Bearer"
+                    }
+                },
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "value": "application/x-www-form-urlencoded",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [],
+                    "options": {
+                        "urlencoded": {}
+                    }
+                },
+                "url": {
+                    "raw": "https://wedec.post.ch/WEDECOAuth/token?grant_type=client_credentials&client_id=50d6ebeae89080d7997ddbd419718825&client_secret=705fe0d3b490a135cd0d68139c071653&scope=WEDEC_DELIVERY",
+                    "protocol": "https",
+                    "host": [
+                        "wedec",
+                        "post",
+                        "ch"
+                    ],
+                    "path": [
+                        "WEDECOAuth",
+                        "token"
+                    ],
+                    "query": [
+                        {
+                            "key": "grant_type",
+                            "value": "client_credentials"
+                        },
+                        {
+                            "key": "client_id",
+                            "value": "50d6ebeae89080d7997ddbd419718825"
+                        },
+                        {
+                            "key": "client_secret",
+                            "value": "705fe0d3b490a135cd0d68139c071653"
+                        },
+                        {
+                            "key": "scope",
+                            "value": "WEDEC_DELIVERY"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        }
+    ],
+    "protocolProfileBehavior": {}
+}

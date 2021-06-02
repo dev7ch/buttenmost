@@ -1,14 +1,14 @@
 <template>
-  <v-container style="max-width:600px">
+  <v-container style="max-width:600px" class="pt-12">
     <v-form
       name="bestellung"
       ref="form"
-      v-model="valid"
-      action="/danke/"
+      action="/.netlify/functions/payrexx"
       method="POST"
-      lazy-validation
-      data-netlify="true"
     >
+<!--     
+      lazy-validation
+      data-netlify="true" -->
       <v-row>
         <v-col>
           <!-- <img src="../static/titelbild.jpg" style="max-width: 600px;" />
@@ -79,66 +79,85 @@
         >
       </v-row>
 
-      <v-row dense class="text-center" style="max-width:400px">
-        <v-col cols="12">
-          <v-text-field dense
-            v-model="fullname"
-            :rules="nameRules"
-            label="Vorname und Name"
-            name="fullname"
-            required
-          ></v-text-field>
-          <v-text-field dense
-            v-model="adress"
-            label="Adresse"
-            name="adress"
-            required
-          ></v-text-field>
-        </v-col> </v-row
-      ><v-row dense style="max-width:400px">
-        <v-col cols="3" md="3">
-          <v-text-field dense
-            v-model="plz"
-            label="PLZ"
-            Name="PLZ"
-            required
-          ></v-text-field>
-        </v-col>
-        <v-col cols="9" md="9">
-          <v-text-field dense
-            v-model="town"
-            label="Ort"
-            required
-          ></v-text-field> </v-col></v-row
-      ><v-row dense style="max-width:400px">
-        <v-col cols="12">
-          <v-text-field dense
-            v-model="email"
-            :rules="emailRules"
-            label="E-mail"
-            name="mail"
-            required
-          ></v-text-field> 
-          <v-textarea
-          dense
-            name="input"
-            label="Bemerkungen"
-            value=""
-            auto-grow
-            rows="1"
-          ></v-textarea>
-        </v-col>
+      <v-row dense class="text-center">
+        <v-spacer /><v-col style="max-width:400px" cols="10">
+          <v-row>
+            <v-col cols="6">
+              <v-text-field
+                dense
+                v-model="forename"
+                label="Vorname"
+                name="forename"
+                required
+              ></v-text-field></v-col
+            ><v-col cols="6">
+              <v-text-field
+                dense
+                v-model="surname"
+                label="Name"
+                name="surname"
+                required
+              ></v-text-field>
+            </v-col> </v-row
+          ><v-row dense style="max-width:400px">
+            <v-col cols="12">
+              <v-text-field
+                dense
+                v-model="street"
+                label="Adresse"
+                name="street"
+                required
+              ></v-text-field>
+            </v-col> </v-row
+          ><v-row dense style="max-width:400px">
+            <v-col cols="3" md="3">
+              <v-text-field
+                dense
+                v-model="postcode"
+                label="PLZ"
+                Name="postcode"
+                required
+              ></v-text-field>
+            </v-col>
+            <v-col cols="9" md="9">
+              <v-text-field
+                dense
+                v-model="place"
+                label="Ort"
+                name="place"
+                required
+              ></v-text-field> </v-col></v-row
+          ><v-row dense style="max-width:400px">
+            <v-col cols="12">
+              <v-text-field
+                dense
+                v-model="email"
+                label="E-mail"
+                name="mail"
+                required
+              ></v-text-field>
+              <v-textarea
+                dense
+                name="text"
+                label="Bemerkungen"
+                v-model="text"
+                auto-grow
+                rows="1"
+              ></v-textarea>
+            </v-col>
 
-        <input type="hidden" name="Liter" v-bind:value="zahl" />
-        <input type="hidden" name="Preis" v-bind:value="preis" />
-        <input type="hidden" name="Porto" v-bind:value="porto" />
-        <v-col cols="12" md="12">
-          Heute ist der
-          {{ heute.toLocaleDateString("de-CH") }}.<br />
-          <v-btn color="primary" elevation="2" large type="submit">
-            Jetzt bestellen</v-btn
-          >
-        </v-col>
+            <input type="hidden" name="Liter" v-bind:value="zahl" />
+            <input type="hidden" name="Preis" v-bind:value="preis" />
+            <input type="hidden" name="Porto" v-bind:value="porto" />
+            <v-col cols="12" md="12">
+              Heute ist der
+              {{ heute.toLocaleDateString("de-CH") }}.<br />
+              <v-btn color="primary" elevation="2" large type="submit">
+                Jetzt bestellen</v-btn
+              >
+            </v-col></v-row
+          > </v-col
+        ><v-spacer />
       </v-row>
     </v-form>
     <br /><br />
@@ -162,6 +181,13 @@ export default {
   },
   data() {
     return {
+      forename: "",
+      surname: "",
+      street: "",
+      postcode: "",
+      place: "",
+      email: "",
+      text: "",
       zahl: 4,
       preis_pro_liter: 9.5,
       shippingDays: [
