@@ -50,7 +50,7 @@ exports.init = function(instance, secret) {
 };
 
 exports.handler = async (event, context) => {
-  const params = querystring.parse(event.body);
+  const params = JSON.parse(event.body)
   const output = JSON.stringify(params)
   const name = params.surname || "World";
   // where you want to consume the payrexx module:
@@ -58,6 +58,8 @@ exports.handler = async (event, context) => {
   
   const response = await payrexx.createGateway({
     amount: params.Preis*100,
+    
+    successRedirectUrl: "https://sleepy-fermat-654198.netlify.app/danke?kunde="+params.email
     // add more fields here
   })
 
@@ -68,7 +70,7 @@ exports.handler = async (event, context) => {
   //}
   return {
     statusCode: 200,
-    body: `Hallo ${params.forename}, hier kommt der Link zum Zahlen: ${response.data.data[0].link} .............................................................................................................................. ${output} ......................................................................... ${gateway} `,
+    body: `${response.data.data[0].link}`,
   };
 
 

@@ -2,17 +2,14 @@
 <v-container>
   <v-row class="text-center">
     <v-col>
-      <TestSelect/>
+      Danke für Ihre Bestellung! {{decodeURI(this.$route.query.kunde)}}
     </v-col>
   </v-row>
 </v-container>
 </template>
 <script>
-import TestSelect from '@/components/TestSelect.vue';
 
 export default {
-  components: {
-    TestSelect
-  },
+  
 };
 </script>
