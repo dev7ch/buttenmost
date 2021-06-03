@@ -3,10 +3,8 @@
     <v-form
       name="bestellung"
       ref="form"
-      action="/.netlify/functions/payrexx"
-      method="POST"
-    >
-<!--     
+      >
+      <!--     
       lazy-validation
       data-netlify="true" -->
       <v-row>
@@ -152,7 +150,12 @@
             <v-col cols="12" md="12">
               Heute ist der
               {{ heute.toLocaleDateString("de-CH") }}.<br />
-              <v-btn color="primary" elevation="2" large type="submit">
+              <v-btn
+                color="primary"
+                elevation="2"
+                large
+                @click="createPayrexxGataway"
+              >
                 Jetzt bestellen</v-btn
               >
             </v-col></v-row
@@ -173,7 +176,9 @@
 </template>
 
 <script>
+
 import Verkaufsstellen from "~/components/verkaufsstellen.vue";
+import axios from 'axios'
 
 export default {
   components: {
@@ -235,6 +240,28 @@ export default {
 
   mounted() {
     this.selected = this.stillPossibleShippingDays[0];
+  },
+  methods: {
+    async createPayrexxGataway() {
+      try {
+        const resp = await axios.post(
+          "/.netlify/functions/payrexx",
+          {
+            forename: this.forename,
+            Preis: this.preis,
+            email: this.email
+          },
+          {
+            // Config
+          }
+        );
+        console.log(resp);
+        window.location.href = resp.data;
+      } catch (err) {
+        // Handle Error Here
+        console.error(err);
+      }
+    }
   }
 };
 </script>
