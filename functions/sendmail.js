@@ -2,7 +2,7 @@ const mailgun = require("mailgun-js");
 
 exports.handler = function(event, context, callback) {
   const mg = mailgun({
-    apiKey: "aa9f95815d1cf88b900a55121d5cd0d8-1d8af1f4-e5d57eb1",
+    apiKey: "key-5545fd16a12f56a3f282efc23bea75fb",
     domain: "sandboxd86c42804fa142eaa48ce3644961f3c2.mailgun.org"
   });
 
