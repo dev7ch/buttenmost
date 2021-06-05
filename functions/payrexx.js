@@ -10,7 +10,6 @@ const querystring = require("querystring");
 // payrexx.js module content:
 const secret = process.env.PAYREXX_SECRET_KEY;
 
-
 exports.init = function(instance, secret) {
   function buildSignature(query = "") {
     return Base64.stringify(hmacSHA256(query, secret));
@@ -50,28 +49,31 @@ exports.init = function(instance, secret) {
 };
 
 exports.handler = async (event, context) => {
-  const params = JSON.parse(event.body)
-  const output = JSON.stringify(params)
+  const params = JSON.parse(event.body);
+  const output = JSON.stringify(params);
   const name = params.surname || "World";
   // where you want to consume the payrexx module:
   const payrexx = this.init("buttenmost", secret);
-  
+
   const response = await payrexx.createGateway({
-    amount: params.Preis*100,
-    
-    successRedirectUrl: "https://sleepy-fermat-654198.netlify.app/danke?kunde="+params.email
+    amount: params.Preis * 100,
+    failedRedirectUrl:
+      "https://sleepy-fermat-654198.netlify.app/_fehler?reason=abgelehnt&kunde=" +
+      params.email,
+    cancelRedirectUrl:
+      "https://sleepy-fermat-654198.netlify.app/_fehler?reason=abgebrochen&kunde=" +
+      params.email,
+    successRedirectUrl:
+      "https://sleepy-fermat-654198.netlify.app/danke?kunde=" + params.email
     // add more fields here
-  })
+  });
 
   //if (response.status === 200) {
-    const gateway = JSON.stringify(response.data.data[0])
-    
-    // here you will get the gateway
+  const gateway = JSON.stringify(response.data.data[0]);
+  // here you will get the gateway
   //}
   return {
     statusCode: 200,
-    body: `${response.data.data[0].link}`,
+    body: `${response.data.data[0].link}`
   };
-
-
 };
