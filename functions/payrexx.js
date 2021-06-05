@@ -58,10 +58,10 @@ exports.handler = async (event, context) => {
   const response = await payrexx.createGateway({
     amount: params.Preis * 100,
     failedRedirectUrl:
-      "https://sleepy-fermat-654198.netlify.app/fehler/abgelehnt?kunde=" +
+      "https://sleepy-fermat-654198.netlify.app/fehler/?fehler=abgelehnt&kunde=" +
       params.email,
     cancelRedirectUrl:
-      "https://sleepy-fermat-654198.netlify.app/fehler/abgebrochen?kunde=" +
+      "https://sleepy-fermat-654198.netlify.app/fehler/?fehler=abgebrochen&kunde=" +
       params.email,
     successRedirectUrl:
       "https://sleepy-fermat-654198.netlify.app/danke?kunde=" + params.email
