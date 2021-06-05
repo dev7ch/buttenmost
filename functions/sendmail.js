@@ -1,8 +1,7 @@
 const mailgun = require("mailgun-js");
-
 exports.handler = function(event, context, callback) {
   const mg = mailgun({
-    apiKey: "key-5545fd16a12f56a3f282efc23bea75fb",
+    apiKey: process.env.MAILCHIMP_API_KEY,
     domain: "sandboxd86c42804fa142eaa48ce3644961f3c2.mailgun.org"
   });
 
