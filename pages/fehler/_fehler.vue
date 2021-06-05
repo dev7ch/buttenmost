@@ -9,8 +9,8 @@
 <script>
   export default {
     async asyncData({ params }) {
-      const reason = params.reasoh
-      return { reason }
+      const reason = params.fehler
+      return { fehler }
     },
   }
 </script>
