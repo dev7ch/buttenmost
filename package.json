@@ -9,6 +9,8 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@vuejs-community/vue-filter-date-parse": "^1.1.6",
+    "airtable": "^0.11.1",
     "axios": "^0.21.1",
     "core-js": "^3.9.1",
     "crypto-js": "^4.0.0",

@@ -1,9 +1,6 @@
 <template>
   <v-container style="max-width:600px" class="pt-12">
-    <v-form
-      name="bestellung"
-      ref="form"
-      >
+    <v-form name="bestellung" ref="form">
       <!--     
       lazy-validation
       data-netlify="true" -->
@@ -47,7 +44,7 @@
               <pre>Menge:&#160;&#160; {{ zahl }} Liter</pre>
               <pre>Preis: {{ preis.toFixed(2) }} CHF</pre>
               <pre>Porto:&#160; {{ porto.toFixed(2) }} CHF</pre>
-              <pre>Total: {{ (zahl + preis + porto).toFixed(2) }} CHF</pre>
+              <pre>Total: {{ total.toFixed(2) }} CHF</pre>
             </v-alert>
           </div>
         </v-col>
@@ -147,6 +144,8 @@
             <input type="hidden" name="Liter" v-bind:value="zahl" />
             <input type="hidden" name="Preis" v-bind:value="preis" />
             <input type="hidden" name="Porto" v-bind:value="porto" />
+            <input type="hidden" name="Total" v-bind:value="total" />
+
             <v-col cols="12" md="12">
               Heute ist der
               {{ heute.toLocaleDateString("de-CH") }}.<br />
@@ -178,7 +177,7 @@
 <script>
 
 import Verkaufsstellen from "~/components/verkaufsstellen.vue";
-import axios from 'axios'
+import axios from "axios";
 
 export default {
   components: {
@@ -221,6 +220,12 @@ export default {
         return 9;
       }
     },
+    verpackung: function() {
+      return 10;
+    },
+    total: function() {
+      return this.preis + this.porto + this.verpackung;
+    },
     heute: function() {
       //return new Date();
       //for testing during Season
@@ -231,7 +236,7 @@ export default {
       this.shippingDays.forEach(element => {
         let date = new Date(element);
         if (date > this.heute) {
-          possibleDatesArray.push(date.toLocaleDateString("de-CH"));
+          possibleDatesArray.push(date);
         }
       });
       return possibleDatesArray;
@@ -248,8 +253,14 @@ export default {
           "/.netlify/functions/payrexx",
           {
             forename: this.forename,
-            Preis: this.preis,
-            email: this.email
+            Preis: this.total,
+            email: this.email,
+            surname: this.surname,
+            street: this.street,
+            postcode: this.postcode,
+            place: this.place,
+            zahl: this.zahl,
+            versanddatum: this.selected
           },
           {
             // Config
@@ -262,6 +273,6 @@ export default {
         console.error(err);
       }
     }
-  }
+  },
 };
 </script>

@@ -5,6 +5,13 @@ const Base64 = require("crypto-js/enc-base64");
 const hmacSHA256 = require("crypto-js/hmac-sha256");
 const baseUrl = "https://api.payrexx.com/v1.0/";
 
+const Airtable = require("airtable");
+Airtable.configure({
+  endpointUrl: "https://api.airtable.com",
+  apiKey: process.env.AIRTABLE_KEY
+});
+const base = Airtable.base("appfpfjspgZ9LWcB2");
+
 const querystring = require("querystring");
 
 // payrexx.js module content:
@@ -51,7 +58,6 @@ exports.init = function(instance, secret) {
 exports.handler = async (event, context) => {
   const params = JSON.parse(event.body);
   const output = JSON.stringify(params);
-  const name = params.surname || "World";
   // where you want to consume the payrexx module:
   const payrexx = this.init("buttenmost", secret);
 
@@ -67,6 +73,34 @@ exports.handler = async (event, context) => {
       "https://sleepy-fermat-654198.netlify.app/danke?kunde=" + params.email
     // add more fields here
   });
+
+  base("Table 1").create(
+    [
+      {
+        fields: {
+          Email: params.email,
+          Vorname: params.forename,
+          Betrag: params.Preis,
+          Name: params.surname,
+          Adresse: params.street,
+          PLZ: params.postcode,
+          Ort: params.place,
+          Menge: params.zahl,
+          Versanddatum: params.versanddatum,
+          Status: "bestellt"
+        }
+      }
+    ],
+    function(err, records) {
+      if (err) {
+        console.error(err);
+        return;
+      }
+      records.forEach(function(record) {
+        console.log(record.getId());
+      });
+    }
+  );
 
   //if (response.status === 200) {
   const gateway = JSON.stringify(response.data.data[0]);
