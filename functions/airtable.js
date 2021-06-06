@@ -8,11 +8,11 @@ Airtable.configure({
 const base = Airtable.base("appfpfjspgZ9LWcB2");
 const airtableId = "";
 const querystring = require("querystring");
-let recordID = " test";
 
 exports.handler = async (event, context) => {
   const params = JSON.parse(event.body);
-  base("Table 1").create(
+  let recordID = " test";
+  await base("Table 1").create(
     {
       Email: params.email,
       Vorname: params.forename,
@@ -24,22 +24,17 @@ exports.handler = async (event, context) => {
       Menge: params.zahl,
       Versanddatum: params.versanddatum,
       Status: "bestellt"
-    },
-    function(err, record) {
-      if (err) {
-        console.error(err);
-        return;
-      }
-      //--> wie kann ich diese ID zurückgeben?
-      recordID = record.getId();
-      
-    return {
-        statusCode: 200,
-        body: `helo ${recordID}`
-    };
     }
-  );
+  ).then(res => {
+    console.log(res, 'response') // find getID in console log
+    console.log(res.getId()) // check if desired result
+    recordID = res.getId() // assing to var
 
+  }).catch(e => {
+    console.log(e, 'Error')
+  })
+  
+  console.log(recordID)
   return {
     statusCode: 200,
     body: `helo ${recordID}`
