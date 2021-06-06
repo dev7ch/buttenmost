@@ -56,25 +56,12 @@ exports.init = function(instance, secret) {
 };
 
 exports.handler = async (event, context) => {
+
   const params = JSON.parse(event.body);
   const output = JSON.stringify(params);
   // where you want to consume the payrexx module:
   const payrexx = this.init("buttenmost", secret);
-
-  const response = await payrexx.createGateway({
-    amount: params.Preis * 100,
-    failedRedirectUrl:
-      "https://sleepy-fermat-654198.netlify.app/fehler/?fehler=abgelehnt&kunde=" +
-      params.email,
-    cancelRedirectUrl:
-      "https://sleepy-fermat-654198.netlify.app/fehler/?fehler=abgebrochen&kunde=" +
-      params.email,
-    successRedirectUrl:
-      "https://sleepy-fermat-654198.netlify.app/danke?kunde=" + params.email
-    // add more fields here
-  });
-
-  base("Table 1").create(
+base("Table 1").create(
     [
       {
         fields: {
@@ -96,11 +83,25 @@ exports.handler = async (event, context) => {
         console.error(err);
         return;
       }
-      records.forEach(function(record) {
-        console.log(record.getId());
-      });
+      return(records[0].getId());
     }
+
   );
+  
+  const response = await payrexx.createGateway({
+    amount: params.Preis * 100,
+    failedRedirectUrl:
+      "https://sleepy-fermat-654198.netlify.app/fehler/?fehler=abgelehnt&kunde=" +
+      params.email,
+    cancelRedirectUrl:
+      "https://sleepy-fermat-654198.netlify.app/fehler/?fehler=abgebrochen&kunde=" +
+      params.email,
+    successRedirectUrl:
+      "https://sleepy-fermat-654198.netlify.app/danke?kunde=" + params.email,
+    // add more fields here
+  });
+
+  
 
   //if (response.status === 200) {
   const gateway = JSON.stringify(response.data.data[0]);

@@ -236,7 +236,7 @@ export default {
       this.shippingDays.forEach(element => {
         let date = new Date(element);
         if (date > this.heute) {
-          possibleDatesArray.push(date);
+          possibleDatesArray.push({"text":date.toLocaleDateString("de-DE"),"value":date});
         }
       });
       return possibleDatesArray;
@@ -244,7 +244,7 @@ export default {
   },
 
   mounted() {
-    this.selected = this.stillPossibleShippingDays[0];
+    this.selected = this.stillPossibleShippingDays[0].value;
   },
   methods: {
     async createPayrexxGataway() {
@@ -267,6 +267,27 @@ export default {
           }
         );
         console.log(resp);
+        
+        const airtableresp = await axios.post(
+          "/.netlify/functions/airtable",
+          {
+            forename: this.forename,
+            Preis: this.total,
+            email: this.email,
+            surname: this.surname,
+            street: this.street,
+            postcode: this.postcode,
+            place: this.place,
+            zahl: this.zahl,
+            versanddatum: this.selected
+          },
+          {
+            // Config
+          }
+        );
+
+        console.log(airtableresp);
+
         window.location.href = resp.data;
       } catch (err) {
         // Handle Error Here
